@@ -1,0 +1,33 @@
+.dolar-content {
+    background-color: rgb(211, 218, 117);
+    color: black;
+    border-radius: 10px;
+    width: 14%;
+    min-width: 150px;
+    padding: 5px;
+    border: solid 2px black; 
+    margin-left: 5px;     
+    align-items: center;
+   
+}
+
+.label-amount-tasa {
+    min-width:max-content;
+    color: red;
+   margin-left: 17px;
+         
+}
+
+.title-dolar-item {    
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.selected-rate {
+    border-radius: 5px;
+    background-color: dimgrey;
+    color: beige;
+    margin-left: 35px;
+}
+

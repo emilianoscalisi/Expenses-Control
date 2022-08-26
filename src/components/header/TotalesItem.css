@@ -1,0 +1,44 @@
+.totales-content {
+    background-color: rgb(182, 218, 117);
+    color: black;
+    border-radius: 10px;
+    width: 25%;
+    min-width: 275px;
+    padding: 5px;
+    border: solid 2px black; 
+  
+     
+}
+
+.label-amoun {
+   float: right;
+    width: 40%;
+    min-width:max-content;
+     
+}
+
+.label-text {
+    margin-left: 10%; 
+    
+    
+}
+
+.title-total-item {
+    text-align: center;
+    font-size: large;
+    font-family: sans-serif;
+}
+
+.pesos{
+    color: blue;
+      
+}
+
+.dolares{
+    color: green;
+}
+
+.bold {
+    font-weight: bold; 
+
+}

@@ -1,0 +1,30 @@
+.seccion-content {
+    background-color: rgb(211, 218, 117);
+    color: black;
+    border-radius: 10px;
+    width: 14%;
+    min-width: 150px;
+    padding: 5px;
+    border: solid 2px black; 
+    margin-right: 5px; 
+    text-align: center;
+    
+}
+
+.title-seccion-item {
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.btn-personal {
+    height: 25px;
+    width: 130px;
+    text-align: center;   
+    padding-top: 0;
+    border-color: black;
+}
+
+.btn-personal-top{
+    margin-bottom: 5px;
+}
