@@ -1,0 +1,76 @@
+.new-expense__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    align-content: center;
+    min-width: 786px;
+    padding-left: 40px;
+  }
+  
+  .new-expense__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .new-expense__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+   
+  }
+  
+  .new-expense__actions {
+    text-align: right;
+    margin-top: 35px;
+    margin-left: 20px;    
+  }
+
+.input-date {
+  width: 140px;
+
+}
+
+.input-descripcion {
+  width: 460px;
+
+}
+
+.input-amount {
+  width: 140px;
+}
+
+.pago{
+  width: 100px;
+
+}
+
+.input-etapa {
+  width: 70px;
+}
+
+
+.formulario {
+  width: 100%;
+
+  
+}
+
+.btn-expense {
+  margin-right: 5px;
+}
+
+.btn-seleccion{
+  
+}
+
+@media screen and (max-width: 1075px) {
+  .new-expense__actions {
+    margin-top: 0;      
+    margin-left: 0;    
+  }
+
+}
