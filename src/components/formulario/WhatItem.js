@@ -13,9 +13,9 @@ const WhatItem=(props)=>{
 
     return(
         <CardHeader>
-                <h1 className="h1-pregunta">Que nuevo gasto queres Agregar?</h1>
+                <h1 className="h1-pregunta">Que gasto queres Agregar?</h1>
                 <div className="btn-group" role="group">
-                    <button type="button" className="btn btn-primary dropdown-toggle btn-seleccion" data-toggle="dropdown" aria-expanded="false">
+                    <button type="button" className="btn btn-primary dropdown-toggle btn-seleccion btn-custom" data-toggle="dropdown" aria-expanded="false">
                         Selecciona
                     </button>
                     <div className="dropdown-menu">

@@ -25,37 +25,45 @@
   
   .new-expense__actions {
     text-align: right;
-    margin-top: 35px;
+    padding-top: 32px;    
     margin-left: 20px;    
   }
 
 .input-date {
   width: 140px;
+  height: 38px;
+
 
 }
 
 .input-descripcion {
-  width: 460px;
+  width: 260px;
+  height: 38px;
+
 
 }
 
 .input-amount {
-  width: 140px;
+  width: 120px;
+  height: 38px;
+
 }
 
-.pago{
-  width: 100px;
+.input-pago{
+  width: 140px;
+  height: 38px;
 
 }
 
 .input-etapa {
   width: 70px;
+  height: 38px;
+
 }
 
 
 .formulario {
   width: 100%;
-
   
 }
 
@@ -63,9 +71,16 @@
   margin-right: 5px;
 }
 
-.btn-seleccion{
+.btn-cancel {
   
 }
+
+.adjuntar {
+  width: 159px;
+  height: 38px;
+  padding: 3px!important;
+}
+
 
 @media screen and (max-width: 1075px) {
   .new-expense__actions {
