@@ -37,7 +37,7 @@
 }
 
 .input-descripcion {
-  width: 260px;
+  width: 200px;
   height: 38px;
 
 
@@ -76,9 +76,14 @@
 }
 
 .adjuntar {
-  width: 159px;
+  /* width: 159px; */
   height: 38px;
   padding: 3px!important;
+}
+
+.custom-file-upload {
+  background-color: red;
+ 
 }
 
 

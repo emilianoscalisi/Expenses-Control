@@ -4,22 +4,22 @@ import CardHeader from "../cards/CardHeader";
 
 const NewExpense = (props) => {
 
-    const submitHandler =(event)=>{
-        event.preventDefault(); 
+    const submitHandler = (event) => {
+        event.preventDefault();
 
 
     }
-    const cancelkHandler =(event)=>{
+    const cancelkHandler = (event) => {
         event.preventDefault();
         props.onCalcel();
     }
 
-    console.log (props.selectedExpense);
+    console.log(props.selectedExpense);
 
-    let classInput="";
-    if (props.selectedExpense === "Mano de Obra"){
+    let classInput = "";
+    if (props.selectedExpense === "Mano de Obra") {
         classInput = "input-etapa"
-    }else{
+    } else {
         classInput = "input-descripcion"
     }
 
@@ -38,7 +38,7 @@ const NewExpense = (props) => {
                         <input className="input-pago" type="text" />
                     </div>
                     <div className="new-expense__control">
-                        {props.selectedExpense === "Mano de Obra" ? <label>Etapa N°</label> : <label>Descripcion</label>}                        
+                        {props.selectedExpense === "Mano de Obra" ? <label>Etapa N°</label> : <label>Descripcion</label>}
                         <input className={classInput} type="text" />
                     </div>
                     <div className="new-expense__control">
@@ -46,15 +46,18 @@ const NewExpense = (props) => {
                         <input className="input-amount" type="number" min="0.01" step="0.01" />
                     </div>
 
-                    {props.selectedExpense === "Materiales" && 
-                    <div className="new-expense__control"> 
-                        <label>Adjuntar Factura</label>
-                        <input type="file" className="adjuntar"/>                        
-                    </div>}
+                    {props.selectedExpense === "Materiales" &&
+                        <div className="new-expense__control">
+
+                            <label class="custom-file-upload">
+                                <input type="file" hidden/>
+                                Custom Upload
+                            </label>
+                        </div>}
 
                     <div className="new-expense__actions">
                         <button className="btn btn-success btn-expense" type="submit" onClick={submitHandler}>New Expense</button>
-                        <button className="btn btn-danger btn-cancel" type="button"  onClick={cancelkHandler}>Cancel</button>
+                        <button className="btn btn-danger btn-cancel" type="button" onClick={cancelkHandler}>Cancel</button>
                     </div>
 
                 </div>
