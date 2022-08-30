@@ -4,10 +4,16 @@ import Formulario from './components/formulario/Formulario';
 
 
 function App() {
+
+  const saveDataHandler=(data)=>{
+
+    console.log(data);
+  }
+
   return (
     <div>
       <Header></Header>
-      <Formulario></Formulario>
+      <Formulario onSaveDataApp={saveDataHandler}></Formulario>
 
     </div>
     

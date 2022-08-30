@@ -4,7 +4,7 @@ import NewExpense from "./NewExpense";
 import WhatItem from "./WhatItem";
 
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const [formState, setFormState] = useState(false);
     const [expenseSelected, setexpenseSelected] = useState();
@@ -19,12 +19,19 @@ const Formulario = () => {
     const calcelHandler =()=>{
         setFormState (false);
     }
+
+    const saveDataHandler=(data)=>{
+
+        console.log(data);
+        props.onSaveDataApp(data);
+        
+    }
     
     
 
     if (formState) {
         return (
-            <NewExpense onCalcel={calcelHandler} selectedExpense={expenseSelected}/>           
+            <NewExpense onCalcel={calcelHandler} selectedExpense={expenseSelected} onSaveData={saveDataHandler}/>           
         );
     } else {
         return (
