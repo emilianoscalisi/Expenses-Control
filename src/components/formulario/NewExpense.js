@@ -38,21 +38,15 @@ const NewExpense = (props) => {
 
    const chageEtapDescr =(event)=>{
     setEtapDescr(event.target.value);
-    console.log (event.target.value);
-
-}
+    }
 
 const chageAmount =(event)=>{
     setAmount(event.target.value);
-    console.log (event.target.value);
-
-}
+    }
 
 const chageDate =(event)=>{
     setDate(event.target.value);
-    console.log (event);
-
-}
+ }
 
 
     const cancelkHandler = (event) => {

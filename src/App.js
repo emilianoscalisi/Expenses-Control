@@ -5,8 +5,7 @@ import Formulario from './components/formulario/Formulario';
 
 function App() {
 
-  const saveDataHandler=(data)=>{
-
+  const saveDataHandler = (data) => {
     console.log(data);
   }
 
@@ -16,7 +15,7 @@ function App() {
       <Formulario onSaveDataApp={saveDataHandler}></Formulario>
 
     </div>
-    
+
   );
 }
 
