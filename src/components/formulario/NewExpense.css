@@ -81,11 +81,12 @@
   padding: 3px!important;
 }
 
-.custom-file-upload {
-  background-color: red;
- 
+.custom-file-upload{
+  margin-top: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: red;
 }
-
 
 @media screen and (max-width: 1075px) {
   .new-expense__actions {

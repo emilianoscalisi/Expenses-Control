@@ -96,10 +96,9 @@ return (
 
                 {props.selectedExpense === "Materiales" &&
                     <div className="new-expense__control">
-
                         <label className="custom-file-upload">
                             <input type="file" hidden />
-                            Custom Upload
+                            <i className="fa-solid fa-file-pdf fa-4x"></i>
                         </label>
                     </div>}
 
