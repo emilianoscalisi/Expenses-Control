@@ -20,8 +20,13 @@ const Formulario = (props) => {
         setFormState(false);
     }
 
-    const saveDataHandler = (data) => {
-        props.onSaveDataApp(data);
+    const saveDataHandler = (dataExpense) => {
+        const newExpense={
+            id: Math.random().toLocaleString(),
+            ...dataExpense
+        }
+
+        props.onSaveDataApp(newExpense);
     }
 
     if (formState) {

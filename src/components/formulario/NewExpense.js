@@ -13,13 +13,15 @@ const NewExpense = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
 
+        const localDate = new Date (dateEntred);
+
         if (props.selectedExpense === "Mano de Obra") {
             const expenseData = {
                 seccion: "Mano de Obra",
                 pagoProv: pagoProvEntred,
                 etapDescr: etapDescrEntred,
                 amount: amountEntred,
-                date: new Date(dateEntred)
+                date: new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate())
             }            
             props.onSaveData(expenseData);
 
@@ -29,7 +31,7 @@ const NewExpense = (props) => {
                 pagoProv: pagoProvEntred,
                 etapDescr: etapDescrEntred,
                 amount: amountEntred,
-                date: new Date(dateEntred)
+                date: new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate())
             }
             props.onSaveData(expenseData);
         }
@@ -42,8 +44,6 @@ const NewExpense = (props) => {
 
 const chagePagoProv = (event) => {
     setPagoProv(event.target.value);
-    console.log(event.target.value);
-
 }
 
 const chageEtapDescr = (event) => {
