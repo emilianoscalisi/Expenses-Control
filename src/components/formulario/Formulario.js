@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./Formulario.css";
-import NewExpense from "./NewExpense";
+import NewExpenseMat from "./NewExpenseMat";
+import NewExpenseMano from "./NewExpenseMano";
 import WhatItem from "./WhatItem";
 
 
 const Formulario = (props) => {
 
-    const [formState, setFormState] = useState(false);
     const [expenseSelected, setexpenseSelected] = useState();
+    const [formState, setFormState] = useState(false);
 
 
 
@@ -21,7 +22,7 @@ const Formulario = (props) => {
     }
 
     const saveDataHandler = (dataExpense) => {
-        const newExpense={
+        const newExpense = {
             id: Math.random().toLocaleString(),
             ...dataExpense
         }
@@ -29,16 +30,22 @@ const Formulario = (props) => {
         props.onSaveDataApp(newExpense);
     }
 
+   
+
     if (formState) {
-        return (
-            <NewExpense onCalcel={calcelHandler} selectedExpense={expenseSelected} onSaveData={saveDataHandler} />
-        );
+        if (expenseSelected === "Materiales") {
+            return (
+                <NewExpenseMat onCalcel={calcelHandler} onSaveData={saveDataHandler} />
+            );
+        } else {
+            return (
+                <NewExpenseMano onCalcel={calcelHandler} onSaveData={saveDataHandler} />
+            );
+        }
     } else {
-        return (
-            <WhatItem onItemSelected={itemSelectedHandler} />
-        );
+            return (
+                <WhatItem onItemSelected={itemSelectedHandler} />
+            );
     }
-
 }
-
-export default Formulario;
+    export default Formulario;

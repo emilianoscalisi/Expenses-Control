@@ -29,10 +29,10 @@ function App() {
   const saveDataHandler = (newExpenseData) => {
     
     setExpenses ( (prevExpenses) => {
+      console.log([newExpenseData, ...prevExpenses]);
       return [newExpenseData, ...prevExpenses];
     });
 
-    console.log(expenses);
   }
 
 
