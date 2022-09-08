@@ -16,10 +16,8 @@ const ExpenseList = (prop) =>{
         
                { prop.data.map((expe) => (<ExpenseItem
                 key = {expe.id}
-                date={expe.date}
-                pago={expe.pago}
-                etapa={expe.etapa}
-                amount={expe.amount}
+                data={expe}
+              
               />)) }   
 
     </ul>

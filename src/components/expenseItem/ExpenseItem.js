@@ -1,21 +1,39 @@
 
 import "./ExpenseItem.css"
 import ExpenseDate from "./ExpenseDate"
-import Card from "./Card";
+import CardHeader from "../cards/CardHeader";
 
 function ExpenseItem(props){
    
+    if (props.data.seccion === "Mano de Obra"){
     return (
         <li>
-        <Card className="expense-item">
-            <ExpenseDate date={props.date}/>
-            <h2 className="expense-item__description">{props.pago}</h2>
-            <h2 className="expense-item__description">{props.etapa}</h2>
-            <div className="expense-item__price">$ {props.amount}</div>                     
-        </Card>
+        <CardHeader className="expense-item">
+            <ExpenseDate date={props.data.date}/>
+            <h2 className="expense-item__description">{props.data.pago}</h2>
+            <h2 className="expense-item__description">{props.data.etapa}</h2>
+            <div className="expense-item__price dolar">US$ {props.data.amount}</div>               
+            <div className="expense-item__price">$ {props.data.amount}</div>                     
+        </CardHeader>
+    </li>
+    );
+
+    }else {
+        return(
+        <li>
+        <CardHeader className="expense-item">
+            <ExpenseDate date={props.data.date}/>
+            <h2 className="expense-item__description">{props.data.proveedor}</h2>
+            <h2 className="expense-item__description">{props.data.descripcion}</h2>
+            <div className="expense-item__price dolar">US$ {props.data.amount}</div>               
+            <div className="expense-item__price">$ {props.data.amount}</div>                     
+        </CardHeader>
     </li>
 
-    );
+        );
+    }
+
+    
 }
 
 export default ExpenseItem;
