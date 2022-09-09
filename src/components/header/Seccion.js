@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Seccion.css";
 
-const Seccion = (props) => {     
+const Seccion = (props) => {  
+    
+    const [disable, setDisable]=useState(true);
        
+    const clickHandlerMat =()=>{
+        setDisable (true);
+    }
+    const clickHandlerMano =()=>{
+        setDisable (false);
+    }
    
     return (
 
@@ -11,8 +19,8 @@ const Seccion = (props) => {
                 <label>Sección</label>
             </div>
             <div>
-               <button type="button" className="btn btn-success btn-personal btn-personal-top">Materiales</button>
-               <button type="button" className="btn btn-success btn-personal">Mano de Obra</button>
+               <button type="button" disabled={disable} onClick={clickHandlerMat} className="btn btn-success btn-personal btn-personal-top">Materiales</button>
+               <button type="button" disabled={!disable} onClick={clickHandlerMano} className="btn btn-success btn-personal">Mano de Obra</button>
             </div>
         </div>
            

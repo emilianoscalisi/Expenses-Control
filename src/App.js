@@ -44,7 +44,6 @@ function App() {
       <Header></Header>
       <Formulario onSaveDataApp={saveDataHandler}></Formulario>
       <ExpenseList data = {expenses}/>
-
     </div>
 
   );
