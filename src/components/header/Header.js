@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css"
+
 import CardHeader from "../cards/CardHeader";
 import TotalesItem from "./TotalesItem";
 import DolarItem from "./DolarItem";
@@ -10,7 +10,7 @@ const Header =()=>{
     
     return(
         
-        <CardHeader>
+        <CardHeader className="headerstyle">
 
             <Subtotales/>
             <Seccion/>
