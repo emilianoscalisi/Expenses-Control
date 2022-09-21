@@ -20,7 +20,7 @@ const Seccion = (props) => {
             </div>
             <div>
                <button type="button" disabled={disable} onClick={clickHandlerMat} className="btn btn-success btn-personal btn-personal-top">Materiales</button>
-               <button type="button" disabled={!disable} onClick={clickHandlerMano} className="btn btn-success btn-personal">Mano de Obra</button>
+               <button type="button" disabled={!disable} onClick={clickHandlerMano} className="btn btn-warning btn-personal">Mano de Obra</button>
             </div>
         </div>
            

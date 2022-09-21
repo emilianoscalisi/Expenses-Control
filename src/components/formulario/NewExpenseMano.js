@@ -59,21 +59,17 @@ const NewExpenseMano = (props) => {
             <form className="formulario" onSubmit={submitHandler}>
 
                 <div className="new-expense__controls">
-                    <div className="new-expense__control">
-                        <label>Date</label>
+                    <div className="new-expense__control">                        
                         <input className="input-date" type="Date" value={dateEntred} onChange={chageDate} min="2022-01-01" />
                     </div>
                     <div className="new-expense__control">
-                        <label>Pago a</label>
-                        <input className="input-pago" type="text" value={pagoEntred} onChange={chagePago} />
+                        <input className="input-pago" placeholder="Pago a" type="text" value={pagoEntred} onChange={chagePago} />
                     </div>
-                    <div className="new-expense__control">
-                        <label>Etapa N°</label>
-                        <input className="input-etapa" type="text" value={etapaEntred} onChange={chageEtapa} />
+                    <div className="new-expense__control">                        
+                        <input className="input-etapa" placeholder="Etapa N°" type="text" value={etapaEntred} onChange={chageEtapa} />
                     </div>
-                    <div className="new-expense__control">
-                        <label>Costo</label>
-                        <input className="input-amount" type="number" value={amountEntred} onChange={chageAmount} min="0.01" step="0.01" />
+                    <div className="new-expense__control">                        
+                        <input className="input-amount" placeholder="Costo" type="number" value={amountEntred} onChange={chageAmount} min="0.01" step="0.01" />
                     </div>
 
                     <div className="new-expense__actions">

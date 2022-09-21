@@ -58,27 +58,23 @@ return (
         <form className="formulario" onSubmit={submitHandler}>
 
             <div className="new-expense__controls">
-                <div className="new-expense__control">
-                    <label>Date</label>
+                <div className="new-expense__control">                    
                     <input className="input-date" type="Date" value={dateEntred} onChange={chageDate} min="2022-01-01" />
                 </div>
-                <div className="new-expense__control">
-                    <label>Proveedor</label>
-                    <input className="input-pago" type="text" value={proveedorEntred} onChange={chageProveedor} />
+                <div className="new-expense__control">                    
+                    <input className="input-pago" placeholder="Proveedor" type="text" value={proveedorEntred} onChange={chageProveedor} />
                 </div>
-                <div className="new-expense__control">
-                    <label>Descripcion</label>
-                    <input className="input-descripcion" type="text" value={descripcionEntred} onChange={chageDescripcion} />
+                <div className="new-expense__control">                    
+                    <input className="input-descripcion" placeholder="Descripcion" type="text" value={descripcionEntred} onChange={chageDescripcion} />
                 </div>
-                <div className="new-expense__control">
-                    <label>Costo</label>
-                    <input className="input-amount" type="number" value={amountEntred} onChange={chageAmount} min="0.01" step="0.01" />
+                <div className="new-expense__control">                    
+                    <input className="input-amount" placeholder="Costo" type="number" value={amountEntred} onChange={chageAmount} min="0.01" step="0.01" />
                 </div>
 
                 <div className="new-expense__control">
                     <label className="custom-file-upload">
                         <input type="file" hidden />
-                        <i className="fa-solid fa-file-pdf fa-4x"></i>
+                        <i className="fa-solid fa-file-pdf fa-2x"></i>
                     </label>
                 </div>
 
