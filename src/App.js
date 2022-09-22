@@ -28,27 +28,31 @@ function App() {
 
   const [expenses, setExpenses]=useState(DUMMIE_EXPENSES_DATA);
   const [itemSelected, setItemSelected]=useState();
+  const [formState, setFormState] = useState(false);
 
-  const saveDataHandler = (newExpenseData) => {
-    
+
+  const saveDataHandler = (newExpenseData) => {    
     setExpenses ( (prevExpenses) => {
       console.log([newExpenseData, ...prevExpenses]);
       return [newExpenseData, ...prevExpenses];
     });
-
   }
 
   const selectedHandler=(whatItem)=>{
     setItemSelected(whatItem);
+    setFormState(true);
+  }
 
+  const formHandler=(stateForm) => {
+    setFormState(false);
   }
 
 
 
   return (
     <div>
-      <Header onSelected={selectedHandler}></Header>
-      <Formulario onSaveDataApp={saveDataHandler} item={itemSelected}></Formulario>
+      <Header onSelected={selectedHandler}></Header>     
+      {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected}></Formulario>}
       <ExpenseList data = {expenses}/>
     </div>
 

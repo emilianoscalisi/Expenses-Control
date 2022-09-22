@@ -6,9 +6,9 @@ import NewExpenseMano from "./NewExpenseMano";
 
 const Formulario = (props) => {
 
-       
+
     const calcelHandler = () => {
-        // setFormState(false);
+        props.onForm(false);
     }
 
     const saveDataHandler = (dataExpense) => {
@@ -22,7 +22,6 @@ const Formulario = (props) => {
 
     const expenseSelected = props.item;
 
-    
         if (expenseSelected === "Materiales") {
             return (
                 <NewExpenseMat onCalcel={calcelHandler} onSaveData={saveDataHandler} />
@@ -32,6 +31,6 @@ const Formulario = (props) => {
                 <NewExpenseMano onCalcel={calcelHandler} onSaveData={saveDataHandler} />
             );
         }
-    
+   
 }
-    export default Formulario;
+export default Formulario;
