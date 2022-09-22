@@ -7,6 +7,7 @@ const NewExpenseMat = (props) => {
     const [proveedorEntred, setProveedor] = useState("");
     const [descripcionEntred, setDescripcion] = useState("");
     const [amountEntred, setAmount] = useState("");
+    const [fileEntred, setFile] = useState("");
     const [dateEntred, setDate] = useState("");
 
 
@@ -20,6 +21,7 @@ const NewExpenseMat = (props) => {
             proveedor: proveedorEntred,
             descripcion: descripcionEntred,
             amount: amountEntred,
+            file: fileEntred,
             date: new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate())
         }
         props.onSaveData(expenseDataMat);
@@ -29,6 +31,7 @@ const NewExpenseMat = (props) => {
     setDescripcion("");
     setAmount("");
     setDate("");
+    setFile("");
 }
 
 const chageProveedor = (event) => {
@@ -45,6 +48,10 @@ const chageAmount = (event) => {
 
 const chageDate = (event) => {
     setDate(event.target.value);
+}
+
+const chageFile = (event) => {
+    setFile(event.target.value);   
 }
 
 
@@ -65,7 +72,7 @@ return (
                     <input className="input-pago" placeholder="Proveedor" type="text" value={proveedorEntred} onChange={chageProveedor} />
                 </div>
                 <div className="new-expense__control">                    
-                    <input className="input-descripcion" placeholder="Descripcion" type="text" value={descripcionEntred} onChange={chageDescripcion} />
+                    <input className="input-descripcion" placeholder="Descripción" type="text" value={descripcionEntred} onChange={chageDescripcion} />
                 </div>
                 <div className="new-expense__control">                    
                     <input className="input-amount" placeholder="Costo" type="number" value={amountEntred} onChange={chageAmount} min="0.01" step="0.01" />
@@ -73,7 +80,7 @@ return (
 
                 <div className="new-expense__control">
                     <label className="custom-file-upload">
-                        <input type="file" hidden />
+                        <input type="file" hidden value={fileEntred} onChange={chageFile} />
                         <i className="fa-solid fa-file-pdf fa-2x"></i>
                     </label>
                 </div>

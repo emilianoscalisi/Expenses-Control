@@ -1,13 +1,15 @@
 .h1-pregunta {
     padding-right: 40px;
-    /* padding-bottom: 6px; */
     margin:0;
     font-size: 30px;
 }
 
 .btn-custom {
-    margin-right: 10px;
-    margin-top: 3px;
-    height: 38px;
+   background-color: black;
+   color: aliceblue;
 }
 
+.btn-custom:hover {
+    color: aliceblue;
+    background-color: #2B4865;
+}

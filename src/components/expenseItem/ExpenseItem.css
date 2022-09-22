@@ -22,7 +22,16 @@
   
   .expense-item h2 {
     color: #3a3a3a;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    flex: 1;
+    margin: 0 1rem;
+    color: white;
+        
+  }
+
+  .expense-item h6 {
+    color: #3a3a3a;
+    font-size: 1rem;
     flex: 1;
     margin: 0 1rem;
     color: white;
@@ -30,17 +39,18 @@
   }
   
   .expense-item__price {
-    font-size: 1rem;
+    display: flex;
+    font-size: 0.8rem;
     font-weight: bold;
     color: white;
     background-color: #003865;
     border: 1px solid white;
     padding: 0.5rem;
     border-radius: 10px;
-    height: 2.5rem;
+    height: 2rem;
     align-items: center;
     justify-content: center;
-
+    padding-bottom: 6px;
   }
 
   .dolar{

@@ -16,11 +16,11 @@ const WhatItem = (props) => {
 
         <div className="seccion-content">
             <div className="title-seccion-item">
-                <label>Agregar gasto</label>
+                <label>Agregar nuevo gasto</label>
             </div>
             
             <div className="btn-group" role="group">
-                <button type="button" className="btn btn-primary dropdown-toggle btn-seleccion btn-custom" data-toggle="dropdown" aria-expanded="false">
+                <button type="button" className="btn btn-sm dropdown-toggle btn-custom" data-toggle="dropdown" aria-expanded="false">
                     Seleccionar
                 </button>
                 <div className="dropdown-menu">
