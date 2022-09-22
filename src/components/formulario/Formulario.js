@@ -1,24 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Formulario.css";
 import NewExpenseMat from "./NewExpenseMat";
 import NewExpenseMano from "./NewExpenseMano";
-import WhatItem from "./WhatItem";
 
 
 const Formulario = (props) => {
 
-    const [expenseSelected, setexpenseSelected] = useState();
-    const [formState, setFormState] = useState(false);
-
-
-
-    const itemSelectedHandler = (selected) => {
-        setFormState(true);
-        setexpenseSelected(selected);
-    }
-
+       
     const calcelHandler = () => {
-        setFormState(false);
+        // setFormState(false);
     }
 
     const saveDataHandler = (dataExpense) => {
@@ -30,9 +20,9 @@ const Formulario = (props) => {
         props.onSaveDataApp(newExpense);
     }
 
-   
+    const expenseSelected = props.item;
 
-    if (formState) {
+    
         if (expenseSelected === "Materiales") {
             return (
                 <NewExpenseMat onCalcel={calcelHandler} onSaveData={saveDataHandler} />
@@ -42,10 +32,6 @@ const Formulario = (props) => {
                 <NewExpenseMano onCalcel={calcelHandler} onSaveData={saveDataHandler} />
             );
         }
-    } else {
-            return (
-                <WhatItem onItemSelected={itemSelectedHandler} />
-            );
-    }
+    
 }
     export default Formulario;

@@ -27,6 +27,7 @@ const DUMMIE_EXPENSES_DATA = [
 function App() {
 
   const [expenses, setExpenses]=useState(DUMMIE_EXPENSES_DATA);
+  const [itemSelected, setItemSelected]=useState();
 
   const saveDataHandler = (newExpenseData) => {
     
@@ -37,12 +38,17 @@ function App() {
 
   }
 
+  const selectedHandler=(whatItem)=>{
+    setItemSelected(whatItem);
+
+  }
+
 
 
   return (
     <div>
-      <Header></Header>
-      <Formulario onSaveDataApp={saveDataHandler}></Formulario>
+      <Header onSelected={selectedHandler}></Header>
+      <Formulario onSaveDataApp={saveDataHandler} item={itemSelected}></Formulario>
       <ExpenseList data = {expenses}/>
     </div>
 

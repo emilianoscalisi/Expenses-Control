@@ -5,13 +5,21 @@ import TotalesItem from "./TotalesItem";
 import DolarItem from "./DolarItem";
 import Seccion from "./Seccion";
 import Subtotales from "./Subtotales";
+import WhatItem from "./WhatItem";
 
-const Header =()=>{ 
+const Header =(props)=>{ 
+
+    
+    const itemSelectedHandler = (selected) => {
+      props.onSelected(selected);
+      
+    }
     
     return(
         
         <CardHeader className="headerstyle">
-
+        
+            <WhatItem onItemSelected={itemSelectedHandler} />
             <Subtotales/>
             <Seccion/>
             <TotalesItem/>
