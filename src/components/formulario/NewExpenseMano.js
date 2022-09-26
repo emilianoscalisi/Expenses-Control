@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./NewExpense.css";
 import CardHeader from "../cards/CardHeader";
 
+
 const NewExpenseMano = (props) => {
 
     const [pagoEntred, setPago] = useState("");
