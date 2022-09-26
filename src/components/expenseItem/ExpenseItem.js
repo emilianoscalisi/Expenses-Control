@@ -17,8 +17,12 @@ function ExpenseItem(props){
             <h6 className="expense-item__description">{props.data.comentario}</h6>
             <div className="expense-item__price dolar">US$ {props.data.amount}</div>               
             <div className="expense-item__price">$ {props.data.amount}</div>
-            <DeleteForeverIcon fontSize="small"/>
-            <EditIcon fontSize="small"/>                       
+            <button className="btn-icons">
+                <DeleteForeverIcon fontSize="small"/>
+            </button>
+            <button className="btn-icons">
+                <EditIcon fontSize="small"/>
+            </button>                      
         </CardHeader>
     </li>
     );
@@ -33,8 +37,12 @@ function ExpenseItem(props){
             <h6 className="expense-item__description">{props.data.file}</h6>
             <div className="expense-item__price dolar">US$ {props.data.amount}</div>               
             <div className="expense-item__price">$ {props.data.amount}</div>
-            <DeleteForeverIcon fontSize="small"/>
-            <EditIcon fontSize="small"/>                       
+            <button className="btn-icons">
+                <DeleteForeverIcon fontSize="small"/>
+            </button>
+            <button className="btn-icons">
+                <EditIcon fontSize="small"/>
+            </button>                       
         </CardHeader>
     </li>
 

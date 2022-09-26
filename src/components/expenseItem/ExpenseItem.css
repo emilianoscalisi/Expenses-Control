@@ -58,6 +58,15 @@
     margin-right: 10px;
 
   }
+  .btn-icons {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 0;
+    margin-left: 3px;
+
+  }
+  
   
     /* @media (min-width: 580px) {
     .expense-item__description {
