@@ -14,6 +14,11 @@ const Header =(props)=>{
       props.onSelected(selected);
       
     }
+
+    const seccionSelectedHandler = (selected) => {
+        props.onSeccion(selected);
+        
+      }
     
     return(
         
@@ -21,7 +26,7 @@ const Header =(props)=>{
         
             <WhatItem onItemSelected={itemSelectedHandler} />
             <Subtotales/>
-            <Seccion/>
+            <Seccion onSeccionSelected={seccionSelectedHandler}/>
             <TotalesItem/>
             <DolarItem/>                        
         

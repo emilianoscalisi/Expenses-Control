@@ -28,6 +28,7 @@ function App() {
 
   const [expenses, setExpenses]=useState(DUMMIE_EXPENSES_DATA);
   const [itemSelected, setItemSelected]=useState();
+  const [seccionSelected, setSeccion]=useState("materiales");
   const [formState, setFormState] = useState(false);
 
 
@@ -43,6 +44,11 @@ function App() {
     setFormState(true);
   }
 
+  const seccionHandler=(seccion)=>{
+    setSeccion(seccion);    
+
+  }
+
   const formHandler=(stateForm) => {
     setFormState(false);
   }
@@ -51,9 +57,9 @@ function App() {
 
   return (
     <div>
-      <Header onSelected={selectedHandler}></Header>     
+      <Header onSelected={selectedHandler} onSeccion={seccionHandler}></Header>     
       {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected}></Formulario>}
-      <ExpenseList data = {expenses}/>
+      <ExpenseList data={expenses} seccion={seccionSelected}/>
     </div>
 
   );

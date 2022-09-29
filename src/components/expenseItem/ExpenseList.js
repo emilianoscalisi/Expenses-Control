@@ -1,28 +1,34 @@
 
 import ExpenseItem from "./ExpenseItem";
-import "./ExpenseList.css"
+import "./ExpenseList.css";
+import EncabezadoMano from "../encabezado/EncabezadoMano";
+import EncabezadoMat from "../encabezado/EncabezadoMat";
 
-const ExpenseList = (prop) =>{
+const ExpenseList = (props) => {
 
 
-    if (prop.data.length === 0){
+    if (props.data.length === 0) {
         return <h2 className="expenses-list__fallback">No Expenses Foud</h2>
 
     }
 
+    const seccionSelected = props.seccion;    
+
     return (
 
-    <ul className="expenses-list" >
-        
-               { prop.data.map((expe) => (<ExpenseItem
-                key = {expe.id}
-                data={expe}
-              
-              />)) }   
+        <div>
+            {seccionSelected === "materiales" ? <EncabezadoMat/> : <EncabezadoMano/>}           
+           
+            <ul className="expenses-list" >
+                {props.data.map((expe) => (<ExpenseItem
+                    key={expe.id}
+                    data={expe}
+                />))}
 
-    </ul>
+            </ul>
+        </div>
     );
-   
+
 }
 
 export default ExpenseList;

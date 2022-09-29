@@ -1,0 +1,72 @@
+
+  .encabezado-mano {
+       
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px; 
+    height: 30px;
+    padding: 0;
+    background-color: #ffc107;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+  
+  }
+
+  .encabezado-mat {
+       
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px; 
+    height: 30px;
+    padding: 0;
+    background-color: #28a745;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+  
+  }
+
+  .encabezado label{  
+    padding: 0;      
+    border-radius: 10px; 
+    font-weight: bold;   
+    height: 28px;    
+    color: black    
+  }
+
+  .fecha {
+    margin-left: 50px;
+  }
+
+  .pagoProv {
+    margin-left: 100px;
+  }
+
+  .etapa {
+    margin-left: 250px;
+  }
+
+  .descripcion {
+    margin-left: 205px;
+  }
+  .factura {
+    margin-left: 135px;
+  }
+  
+  .comentarios {
+    margin-left: 180px;
+  } 
+  
+  .valor-dolar {
+    margin-left: 70px;
+  }
+
+  .valor-dolarr {
+    margin-left: 110px;
+  }
+
+  .valor-pesos {
+    margin-left: 20px;
+    
+  }
