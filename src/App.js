@@ -11,6 +11,7 @@ const DUMMIE_EXPENSES_DATA = [
     seccion: "Materiales",
     proveedor: "Codimat",
     descripcion: "Cemento y cal",
+    file: "---------",
     amount: 15000,
     date: new Date(2022,8,31)
   },
@@ -19,6 +20,7 @@ const DUMMIE_EXPENSES_DATA = [
     seccion: "Mano de Obra",
     pago: "Julio",
     etapa: "1",
+    comentario: "Revoques y contrapiso",
     amount: 40000,
     date: new Date(2022,8,31)
   }
