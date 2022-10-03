@@ -12,7 +12,8 @@ const DUMMIE_EXPENSES_DATA = [
     proveedor: "Codimat",
     descripcion: "Cemento y cal",
     file: "---------",
-    amount: 15000,
+    amountPesos: 15000,
+    amountDolar: 1500,
     date: new Date(2022,8,31)
   },
   {
@@ -21,7 +22,8 @@ const DUMMIE_EXPENSES_DATA = [
     pago: "Julio",
     etapa: "1",
     comentario: "Revoques y contrapiso",
-    amount: 40000,
+    amountPesos: 40000,
+    amountDolar: 400,
     date: new Date(2022,8,31)
   },
   {
@@ -30,7 +32,8 @@ const DUMMIE_EXPENSES_DATA = [
     proveedor: "Gili",
     descripcion: "Ladrillos",
     file: "---------",
-    amount: 60000,
+    amountPesos: 60000,
+    amountDolar: 600,
     date: new Date(2022,8,31)
   },
   {
@@ -38,19 +41,25 @@ const DUMMIE_EXPENSES_DATA = [
     seccion: "Mano de Obra",
     pago: "Pedro",
     etapa: "4",
-    comentario: "Direccion de obra",
-    amount: 50000,
+    comentario: "Direccion de obra",    
+    amountPesos: 50000,
+    amountDolar: 500,
     date: new Date(2022,8,31)
   }
 ]
 
 function App() {
-
+  
   const [expenses, setExpenses]=useState(DUMMIE_EXPENSES_DATA);
   const [itemSelected, setItemSelected]=useState();
   const [seccionSelected, setSeccion]=useState("Materiales");
-  const [formState, setFormState] = useState(false);
+  const [formState, setFormState] = useState(false); 
+  
+  const totalesManoyMat = {
+    totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0),
+    totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0)
 
+  }
 
   const saveDataHandler = (newExpenseData) => {    
     setExpenses ( (prevExpenses) => {
@@ -77,7 +86,7 @@ function App() {
 
   return (
     <div>
-      <Header onSelected={selectedHandler} onSeccion={seccionHandler}></Header>     
+      <Header onSelected={selectedHandler} onSeccion={seccionHandler} totales={totalesManoyMat}></Header>     
       {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected}></Formulario>}
       <ExpenseList data={expenses} seccion={seccionSelected}/>
     </div>

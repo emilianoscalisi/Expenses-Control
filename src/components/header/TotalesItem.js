@@ -1,7 +1,7 @@
 import React from "react";
 import "./TotalesItem.css";
 
-const TotalesItem =()=>{
+const TotalesItem =(props)=>{
     
     return(
         <div className="totales-content">
@@ -10,11 +10,11 @@ const TotalesItem =()=>{
             </div>
             <div>
                 <label className="label-text pesos" >PESOS:</label>
-                <label className="label-amoun pesos bold">$ {4716000}</label>
+                <label className="label-amoun pesos bold">$ {props.totales.totalPesos}</label>
             </div>
             <div>
                 <label className="label-text dolares" >DOLARES:</label>
-                <label className="label-amoun dolares bold">U$S {26000}</label>
+                <label className="label-amoun dolares bold">U$S {props.totales.totalDolar}</label>
             </div>
         </div>
     );
