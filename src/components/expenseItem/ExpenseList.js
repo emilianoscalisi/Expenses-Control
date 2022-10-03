@@ -12,15 +12,18 @@ const ExpenseList = (props) => {
 
     }
 
-    const seccionSelected = props.seccion;    
+    const expenses = props.data;
+    const seccionSelected = props.seccion;
+
+    const expensesFiltredBySection = expenses.filter(eachExpense =>eachExpense.seccion === seccionSelected);
 
     return (
 
         <div>
-            {seccionSelected === "materiales" ? <EncabezadoMat/> : <EncabezadoMano/>}           
+            {seccionSelected === "Materiales" ? <EncabezadoMat/> : <EncabezadoMano/>}           
            
             <ul className="expenses-list" >
-                {props.data.map((expe) => (<ExpenseItem
+                {expensesFiltredBySection.map((expe) => (<ExpenseItem
                     key={expe.id}
                     data={expe}
                 />))}

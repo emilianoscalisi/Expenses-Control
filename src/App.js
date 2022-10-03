@@ -23,6 +23,24 @@ const DUMMIE_EXPENSES_DATA = [
     comentario: "Revoques y contrapiso",
     amount: 40000,
     date: new Date(2022,8,31)
+  },
+  {
+    id: 3,
+    seccion: "Materiales",
+    proveedor: "Gili",
+    descripcion: "Ladrillos",
+    file: "---------",
+    amount: 60000,
+    date: new Date(2022,8,31)
+  },
+  {
+    id: 4,
+    seccion: "Mano de Obra",
+    pago: "Pedro",
+    etapa: "4",
+    comentario: "Direccion de obra",
+    amount: 50000,
+    date: new Date(2022,8,31)
   }
 ]
 
@@ -30,7 +48,7 @@ function App() {
 
   const [expenses, setExpenses]=useState(DUMMIE_EXPENSES_DATA);
   const [itemSelected, setItemSelected]=useState();
-  const [seccionSelected, setSeccion]=useState("materiales");
+  const [seccionSelected, setSeccion]=useState("Materiales");
   const [formState, setFormState] = useState(false);
 
 
