@@ -24,8 +24,8 @@ const WhatItem = (props) => {
                     Seleccionar
                 </button>
                 <div className="dropdown-menu">
-                    <a className="dropdown-item" href="a" onClick={clickHandler} >Mano de Obra</a>
                     <a className="dropdown-item" href="b" onClick={clickHandler} >Materiales</a>
+                    <a className="dropdown-item" href="a" onClick={clickHandler} >Mano de Obra</a>
                 </div>
             </div>
             

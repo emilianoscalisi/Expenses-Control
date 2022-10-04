@@ -22,7 +22,8 @@ const NewExpenseMano = (props) => {
             pago: pagoEntred,
             etapa: etapaEntred,
             comentario: comentarioEntred,
-            amount: amountEntred,
+            amountPesos: Number.parseFloat(amountEntred) ,
+            amountDolar: amountEntred/10,
             date: new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate())
         }
         props.onSaveData(expenseDataMano);

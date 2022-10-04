@@ -58,7 +58,6 @@ function App() {
   const totalesManoyMat = {
     totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0),
     totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0)
-
   }
 
   const saveDataHandler = (newExpenseData) => {    
