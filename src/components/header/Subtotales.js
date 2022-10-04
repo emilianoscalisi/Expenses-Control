@@ -5,8 +5,8 @@ const Subtotales =(props)=>{
 
     const subtotales = props.data;
     
-    const totalPesos= subtotales.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0);
-    const totalDolar= subtotales.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0);
+    const totalPesos= subtotales.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0).toLocaleString();
+    const totalDolar= subtotales.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0).toLocaleString();
 
     return (
         <div className="subtotales-content">

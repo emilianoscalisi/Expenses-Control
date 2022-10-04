@@ -56,8 +56,8 @@ function App() {
   const [formState, setFormState] = useState(false); 
   
   const totalesManoyMat = {
-    totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0),
-    totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0)
+    totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0).toLocaleString(),
+    totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0).toLocaleString()
   }
 
   const expensesFiltredBySection = expenses.filter(eachExpense =>eachExpense.seccion === seccionSelected);
