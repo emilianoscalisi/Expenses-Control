@@ -12,6 +12,12 @@ const ExpenseList = (props) => {
 
     }
 
+    const deleteHandler =(id)=>{
+        const deletItem =id;
+        props.OnRemoveItem(deletItem);
+
+    }
+
     const expenses = props.data;
     const seccionSelected = props.seccion;
 
@@ -26,6 +32,7 @@ const ExpenseList = (props) => {
                 {expenses.map((expe) => (<ExpenseItem
                     key={expe.id}
                     data={expe}
+                    onDelete ={deleteHandler}
                 />))}
 
             </ul>

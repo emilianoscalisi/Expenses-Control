@@ -55,18 +55,24 @@ function App() {
   const [seccionSelected, setSeccion]=useState("Materiales");
   const [formState, setFormState] = useState(false); 
   
+  
+  const expensesFiltredBySection = expenses.filter(eachExpense =>eachExpense.seccion === seccionSelected);
+  
+  const saveDataHandler = (newExpenseData) => {    
+    setExpenses ( (prevExpenses) => {     
+      return [newExpenseData, ...prevExpenses];
+    });
+  }
+  
+  const removeItemHandler=(id)=>{
+    setExpenses ( (prevExpenses) => {
+     return prevExpenses.filter((expensesItem)=>expensesItem.id !== id);      
+    });    
+  }
+  
   const totalesManoyMat = {
     totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0).toLocaleString(),
     totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0).toLocaleString()
-  }
-
-  const expensesFiltredBySection = expenses.filter(eachExpense =>eachExpense.seccion === seccionSelected);
-
-  const saveDataHandler = (newExpenseData) => {    
-    setExpenses ( (prevExpenses) => {
-      console.log([newExpenseData, ...prevExpenses]);
-      return [newExpenseData, ...prevExpenses];
-    });
   }
 
   const selectedHandler=(whatItem)=>{
@@ -95,7 +101,8 @@ function App() {
       {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected}/>}
       <ExpenseList 
       data={expensesFiltredBySection} 
-      seccion={seccionSelected}/>
+      seccion={seccionSelected}
+      OnRemoveItem={removeItemHandler}/>
     </div>
 
   );
