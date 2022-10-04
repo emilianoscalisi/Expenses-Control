@@ -25,7 +25,7 @@ const Header =(props)=>{
         <CardHeader className="headerstyle">
         
             <WhatItem onItemSelected={itemSelectedHandler} />
-            <Subtotales/>
+            <Subtotales data={props.data}/>
             <Seccion onSeccionSelected={seccionSelectedHandler}/>
             <TotalesItem totales={props.totales}/>
             <DolarItem/>                        

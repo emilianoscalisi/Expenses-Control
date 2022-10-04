@@ -87,8 +87,8 @@ return (
                 </div>
 
                 <div className="new-expense__actions">
-                    <button className="btn btn-success btn-expense" type="submit">New Expense</button>
-                    <button className="btn btn-danger btn-cancel" type="button" onClick={cancelkHandler}>Cancel</button>
+                    <button className="btn btn-success btn-expense" type="submit">Agregar</button>
+                    <button className="btn btn-danger btn-cancel" type="button" onClick={cancelkHandler}>Cancelar</button>
                 </div>
 
             </div>

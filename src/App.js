@@ -60,6 +60,8 @@ function App() {
     totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0)
   }
 
+  const expensesFiltredBySection = expenses.filter(eachExpense =>eachExpense.seccion === seccionSelected);
+
   const saveDataHandler = (newExpenseData) => {    
     setExpenses ( (prevExpenses) => {
       console.log([newExpenseData, ...prevExpenses]);
@@ -85,9 +87,15 @@ function App() {
 
   return (
     <div>
-      <Header onSelected={selectedHandler} onSeccion={seccionHandler} totales={totalesManoyMat}></Header>     
-      {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected}></Formulario>}
-      <ExpenseList data={expenses} seccion={seccionSelected}/>
+      <Header 
+      onSelected={selectedHandler} 
+      onSeccion={seccionHandler} 
+      totales={totalesManoyMat}
+      data={expensesFiltredBySection}/>
+      {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected}/>}
+      <ExpenseList 
+      data={expensesFiltredBySection} 
+      seccion={seccionSelected}/>
     </div>
 
   );

@@ -1,7 +1,12 @@
 import React from "react";
 import "./Subtotales.css";
 
-const Subtotales =()=>{
+const Subtotales =(props)=>{
+
+    const subtotales = props.data;
+    
+    const totalPesos= subtotales.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0);
+    const totalDolar= subtotales.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0);
 
     return (
         <div className="subtotales-content">
@@ -10,11 +15,11 @@ const Subtotales =()=>{
         </div>
         <div>
             <label className="label-text pesos" >PESOS:</label>
-            <label className="label-amoun pesos bold">$ {4716000}</label>
+            <label className="label-amoun pesos bold">$ {totalPesos}</label>
         </div>
         <div>
             <label className="label-text dolares" >DOLARES:</label>
-            <label className="label-amoun dolares bold">U$S {26000}</label>
+            <label className="label-amoun dolares bold">U$S {totalDolar}</label>
         </div>
     </div>
     );
