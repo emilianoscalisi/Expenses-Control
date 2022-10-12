@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/header/Header';
 import Formulario from './components/formulario/Formulario';
+import dolar from './APIs/dolarHoy';
 
 import { useState } from 'react';
 import ExpenseList from './components/expenseItem/ExpenseList';
@@ -90,6 +91,7 @@ function App() {
   }
 
 
+  dolar();
 
   return (
     <div>
