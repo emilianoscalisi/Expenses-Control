@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./NewExpense.css";
 import CardHeader from "../cards/CardHeader";
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 const NewExpenseMat = (props) => {
 
@@ -82,7 +83,7 @@ return (
                 <div className="new-expense__control">
                     <label className="custom-file-upload">
                         <input type="file" hidden value={fileEntred} onChange={chageFile} />
-                        <i className="fa-solid fa-file-pdf fa-2x"></i>
+                        <AttachFileIcon fontSize="large"></AttachFileIcon>                       
                     </label>
                 </div>
 
