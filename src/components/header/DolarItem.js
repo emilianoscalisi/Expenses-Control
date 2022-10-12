@@ -1,28 +1,20 @@
 import React, { useState } from "react";
 import "./DolarItem.css";
-
+import dolarHoy from "../../APIs/dolarHoy";
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 const DolarItem = (props) => {
+    
+    const [valorPesos, setValorPesos]=useState("$***.**");   
 
-   const totalPesos = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(138.75*1.75);
-
-   const [selected, setSelectd]=useState(totalPesos);   
-   const [monedaSelected, setMonedaSelectd]=useState("U$D");   
-
-    const monedaSelectedHandler = (event) => {               
-        
-        if(event.target.value === "Dolar"){
-            const totalPesos = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(138.75*1.75);
-            setSelectd (totalPesos);
-            setMonedaSelectd("U$D");
-        }
-        if(event.target.value === "Euro"){
-            const totalPesos = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(139.5*1.75);
-            setSelectd (totalPesos);
-            setMonedaSelectd("€");
-        }
-        
-
-    }
+    const  callBackDolar =(data)=>{
+        const valorDolarHoy = data[0].casa.venta;
+        const dolar =  parseFloat(valorDolarHoy.replace(',', '.'));            
+        const pesos = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(dolar*1.75);
+        setValorPesos(pesos) 
+      }
+      dolarHoy(callBackDolar); 
+   
     return (
 
         <div className="dolar-content">
@@ -30,12 +22,13 @@ const DolarItem = (props) => {
                 <label> Tasa de cambio</label>
             </div>
             <div>
-                <label className="label-amount-tasa"> {monedaSelected} 1 = {selected}</label>
+                <h6 className="label-amount-tasa"> U$D 1 = {valorPesos}</h6>
 
-                <select className="selected-rate"  onChange={monedaSelectedHandler}>
-                    <option value='Dolar'>Dolar</option>
-                    <option value='Euro'>Euro</option>
-                </select>
+                {valorPesos === "$***.**" ? <h6 className="sc">Sin conexion<CloseIcon/></h6>:
+                <h6 className="cc">Actualizado<CheckIcon/></h6>}
+
+                
+                
 
             </div>
         </div>

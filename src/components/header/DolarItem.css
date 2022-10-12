@@ -14,7 +14,8 @@
 .label-amount-tasa {
     min-width:max-content;
     color: red;
-   margin-left: 17px;
+   /* margin-left: 17px; */
+   text-align: center;
          
 }
 
@@ -24,10 +25,15 @@
     text-align: center;
 }
 
-.selected-rate {
-    border-radius: 5px;
-    background-color: dimgrey;
-    color: beige;
-    margin-left: 35px;
+.sc {
+    color: red;
+}
+
+.cc {
+    color: green;
+}
+
+h6 {
+    text-align: center;
 }
 
