@@ -19,6 +19,13 @@ const Header =(props)=>{
         props.onSeccion(selected);
         
       }
+
+      const getValorDolar=(valorDolar)=>{
+        props.onValorDolar (valorDolar);
+
+      }
+
+
     
     return(
         
@@ -28,7 +35,7 @@ const Header =(props)=>{
             <Subtotales data={props.data}/>
             <Seccion onSeccionSelected={seccionSelectedHandler}/>
             <TotalesItem totales={props.totales}/>
-            <DolarItem/>                        
+            <DolarItem onValorDolar={getValorDolar}/>                        
         
         </CardHeader>       
     );

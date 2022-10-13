@@ -12,7 +12,8 @@ const DUMMIE_EXPENSES_DATA = [
     descripcion: "Cemento y cal",
     file: "---------",
     amountPesos: 15000,
-    amountDolar: 1500,
+    valorDolar: 200,
+    amountDolar:15000/200,
     date: new Date(2022,8,31)
   },
   {
@@ -22,7 +23,8 @@ const DUMMIE_EXPENSES_DATA = [
     etapa: "1",
     comentario: "Revoques y contrapiso",
     amountPesos: 40000,
-    amountDolar: 400,
+    valorDolar: 200,
+    amountDolar:40000/200,
     date: new Date(2022,8,31)
   },
   {
@@ -32,7 +34,8 @@ const DUMMIE_EXPENSES_DATA = [
     descripcion: "Ladrillos",
     file: "---------",
     amountPesos: 60000,
-    amountDolar: 600,
+    valorDolar: 200,
+    amountDolar:60000/200,
     date: new Date(2022,8,31)
   },
   {
@@ -42,7 +45,8 @@ const DUMMIE_EXPENSES_DATA = [
     etapa: "4",
     comentario: "Direccion de obra",    
     amountPesos: 50000,
-    amountDolar: 500,
+    valorDolar: 200,
+    amountDolar:50000/200,
     date: new Date(2022,8,31)
   }
 ]
@@ -58,11 +62,16 @@ function App() {
   const expensesFiltredBySection = expenses.filter(eachExpense =>eachExpense.seccion === seccionSelected);
   
   const saveDataHandler = (newExpenseData) => {    
-    setExpenses ( (prevExpenses) => {     
-      return [newExpenseData, ...prevExpenses];
+    setExpenses ( (prevExpenses) => {          
+     
+      return [
+        {...newExpenseData,
+        valorDolar:dolarHoy,
+        amountDolar:newExpenseData.amountPesos/(dolarHoy*1.75)},
+        ...prevExpenses];
     });
   }
-  
+
   const removeItemHandler=(id)=>{
     setExpenses ( (prevExpenses) => {
      return prevExpenses.filter((expensesItem)=>expensesItem.id !== id);      
@@ -86,11 +95,20 @@ function App() {
 
   const formHandler=(stateForm) => {
     setFormState(false);
-  } 
+  }
+  
+  //ver por que se ejecuta 2 veces con cada click en header app-------------------------------------
+  let dolarHoy;
+  const getValorDolar=(valorDolar)=>{
+    dolarHoy= valorDolar;
+    console.log(dolarHoy);
+
+  }
 
   return (
     <div>
-      <Header 
+      <Header
+      onValorDolar={getValorDolar} 
       onSelected={selectedHandler} 
       onSeccion={seccionHandler} 
       totales={totalesManoyMat}

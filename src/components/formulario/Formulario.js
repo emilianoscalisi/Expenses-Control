@@ -13,7 +13,7 @@ const Formulario = (props) => {
 
     const saveDataHandler = (dataExpense) => {
         const newExpense = {
-            id: Math.random().toLocaleString(),
+            id: Math.random().toLocaleString(),            
             ...dataExpense
         }
 

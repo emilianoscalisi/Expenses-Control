@@ -21,8 +21,7 @@ const NewExpenseMat = (props) => {
             seccion: "Materiales",
             proveedor: proveedorEntred,
             descripcion: descripcionEntred,
-            amountPesos: Number.parseFloat(amountEntred),
-            amountDolar: Number.parseFloat(amountEntred)/10,
+            amountPesos: Number.parseFloat(amountEntred),            
             file: fileEntred,
             date: new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate())
         }

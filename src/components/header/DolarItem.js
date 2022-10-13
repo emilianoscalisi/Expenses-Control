@@ -8,10 +8,11 @@ const DolarItem = (props) => {
     const [valorPesos, setValorPesos]=useState("$***.**");   
 
     const  callBackDolar =(data)=>{
-        const valorDolarHoy = data[0].casa.venta;
-        const dolar =  parseFloat(valorDolarHoy.replace(',', '.'));            
-        const pesos = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(dolar*1.75);
-        setValorPesos(pesos) 
+        const valorDolarHoy = data[0].casa.venta;        
+        const dolar =  parseFloat(valorDolarHoy.replace(',', '.'));                   
+        const pesos = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(dolar*1.75);                
+        setValorPesos(pesos)
+        props.onValorDolar(dolar); 
       }
       dolarHoy(callBackDolar); 
    
@@ -25,11 +26,7 @@ const DolarItem = (props) => {
                 <h6 className="label-amount-tasa"> U$D 1 = {valorPesos}</h6>
 
                 {valorPesos === "$***.**" ? <h6 className="sc">Sin conexion<CloseIcon/></h6>:
-                <h6 className="cc">Actualizado<CheckIcon/></h6>}
-
-                
-                
-
+                <h6 className="cc">Actualizado<CheckIcon/></h6>}           
             </div>
         </div>
            

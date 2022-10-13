@@ -21,7 +21,7 @@ function ExpenseItem(props){
             <h2 className="expense-item__description">{props.data.pago}</h2>
             <h2 className="expense-item__description">{props.data.etapa}</h2>
             <h6 className="expense-item__description">{props.data.comentario}</h6>
-            <div className="expense-item__price dolar">US$ {props.data.amountDolar.toLocaleString()}</div>               
+            <div className="expense-item__price dolar">US$ {props.data.amountDolar.toLocaleString()}</div>                        
             <div className="expense-item__price">$ {props.data.amountPesos.toLocaleString()}</div>
             <button className="btn-icons" onClick={deleteHandler}>
                 <DeleteForeverIcon fontSize="small"/>
