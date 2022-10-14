@@ -40,33 +40,33 @@
   }
 
   .pagoProv {
-    margin-left: 100px;
+    margin-left: 80px;
   }
 
   .etapa {
-    margin-left: 250px;
+    margin-left: 90px;
   }
 
   .descripcion {
-    margin-left: 205px;
+    margin-left: 80px;
+    flex: 1;
+
   }
   .factura {
-    margin-left: 135px;
+    margin-right: 150px;
   }
   
   .comentarios {
-    margin-left: 180px;
+    margin-left: 80px;
+    flex: 1;
   } 
   
   .valor-dolar {
-    margin-left: 70px;
+    margin-right: 80px;
   }
 
-  .valor-dolarr {
-    margin-left: 110px;
-  }
-
+  
   .valor-pesos {
-    margin-left: 20px;
+    margin-right: 80px;
     
   }

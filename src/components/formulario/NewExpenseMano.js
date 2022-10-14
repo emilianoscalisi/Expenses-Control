@@ -30,6 +30,7 @@ const NewExpenseMano = (props) => {
         setPago("");
         setEtapa("");
         setAmount("");
+        setComentario("");
         setDate(props.defaultDate);
     }
 

@@ -18,9 +18,9 @@ function ExpenseItem(props){
         <li>
         <CardHeader className="expense-item">
             <ExpenseDate date={props.data.date}/>
-            <h2 className="expense-item__description">{props.data.pago}</h2>
-            <h2 className="expense-item__description">{props.data.etapa}</h2>
-            <h6 className="expense-item__description">{props.data.comentario}</h6>
+            <h2 className="expense-item__pago-prov">{props.data.pago}</h2>
+            <h2 className="expense-item__etapa">{props.data.etapa}</h2>
+            <h6 className="expense-item__comentario">{props.data.comentario}</h6>
             <div className="expense-item__price dolar">US$ {props.data.amountDolar.toLocaleString()}</div>                        
             <div className="expense-item__price">$ {props.data.amountPesos.toLocaleString()}</div>
             <button className="btn-icons" onClick={deleteHandler}>
@@ -38,9 +38,9 @@ function ExpenseItem(props){
         <li>
         <CardHeader className="expense-item">
             <ExpenseDate date={props.data.date}/>
-            <h2 className="expense-item__description">{props.data.proveedor}</h2>
-            <h2 className="expense-item__description">{props.data.descripcion}</h2>
-            <h6 className="expense-item__description">{props.data.file}</h6>
+            <h2 className="expense-item__pago-prov">{props.data.proveedor}</h2>
+            <h2 className="expense-item__descripcion">{props.data.descripcion}</h2>
+            <h6 className="expense-item__comentario">{props.data.file}</h6>
             <div className="expense-item__price dolar">US$ {props.data.amountDolar.toLocaleString()}</div>               
             <div className="expense-item__price">$ {props.data.amountPesos.toLocaleString()}</div>
             <button className="btn-icons" onClick={deleteHandler}>
