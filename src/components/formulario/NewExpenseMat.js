@@ -9,7 +9,7 @@ const NewExpenseMat = (props) => {
     const [descripcionEntred, setDescripcion] = useState("");
     const [amountEntred, setAmount] = useState("");
     const [fileEntred, setFile] = useState("");
-    const [dateEntred, setDate] = useState("");
+    const [dateEntred, setDate] = useState(props.defaultDate);
 
 
     const submitHandler = (event) => {
@@ -31,8 +31,8 @@ const NewExpenseMat = (props) => {
     setProveedor("");
     setDescripcion("");
     setAmount("");
-    setDate("");
     setFile("");
+    setDate(props.defaultDate);
 }
 
 const chageProveedor = (event) => {

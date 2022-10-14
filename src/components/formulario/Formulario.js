@@ -16,19 +16,24 @@ const Formulario = (props) => {
             id: Math.random().toLocaleString(),            
             ...dataExpense
         }
-
         props.onSaveDataApp(newExpense);
     }
+    
+    const date = new Date();
+    const today = date.getDate();
+    date.setDate(today);
+    const defaultValue = date.toLocaleDateString('en-CA');
+   
 
     const expenseSelected = props.item;
 
         if (expenseSelected === "Materiales") {
             return (
-                <NewExpenseMat onCalcel={calcelHandler} onSaveData={saveDataHandler} />
+                <NewExpenseMat onCalcel={calcelHandler} onSaveData={saveDataHandler} defaultDate={defaultValue}/>
             );
         } else {
             return (
-                <NewExpenseMano onCalcel={calcelHandler} onSaveData={saveDataHandler} />
+                <NewExpenseMano onCalcel={calcelHandler} onSaveData={saveDataHandler} defaultDate={defaultValue}/>
             );
         }
    

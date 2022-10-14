@@ -9,7 +9,7 @@ const NewExpenseMano = (props) => {
     const [etapaEntred, setEtapa] = useState("");
     const [comentarioEntred, setComentario] = useState("");
     const [amountEntred, setAmount] = useState("");
-    const [dateEntred, setDate] = useState("");
+    const [dateEntred, setDate] = useState(props.defaultDate)   
 
 
     const submitHandler = (event) => {
@@ -30,7 +30,7 @@ const NewExpenseMano = (props) => {
         setPago("");
         setEtapa("");
         setAmount("");
-        setDate("");
+        setDate(props.defaultDate);
     }
 
     const chagePago = (event) => {
@@ -57,7 +57,8 @@ const NewExpenseMano = (props) => {
     const cancelkHandler = (event) => {
         event.preventDefault();
         props.onCalcel();
-    }
+    } 
+    
 
 
     return (
