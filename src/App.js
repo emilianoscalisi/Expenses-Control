@@ -1,8 +1,10 @@
 import './App.css';
 import Header from './components/header/Header';
 import Formulario from './components/formulario/Formulario';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ExpenseList from './components/expenseItem/ExpenseList';
+import { collection, getDocs } from "firebase/firestore";
+import db from './firebase/firebaseConfig';
 
 const DUMMIE_EXPENSES_DATA = [
   {
@@ -104,6 +106,22 @@ function App() {
     console.log(dolarHoy);
 
   }
+
+
+  //Base de datos---------Leer
+
+  useEffect (()=>{
+    const obtenerDatos= async()=>{
+      const datos = await getDocs(collection(db,'Materiales'));
+      datos.forEach (docs => {
+        console.log (datos.docs[0].data());
+      })
+    }
+    obtenerDatos();
+  });
+
+
+  
 
   return (
     <div>
