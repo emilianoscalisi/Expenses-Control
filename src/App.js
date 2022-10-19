@@ -4,6 +4,7 @@ import Formulario from './components/formulario/Formulario';
 import { useEffect, useState } from 'react';
 import ExpenseList from './components/expenseItem/ExpenseList';
 import { collection, getDocs } from "firebase/firestore";
+import {addDoc } from "firebase/firestore"; 
 import db from './firebase/firebaseConfig';
 
 const DUMMIE_EXPENSES_DATA = [
@@ -120,8 +121,26 @@ function App() {
     obtenerDatos();
   });
 
-
+  //Base de datos---------Escribir
+  // useEffect (()=>{
+  //   const escribirDatos= async()=>{
+  // try {
+  //   const docRef = await addDoc(collection(db, "users"), {
+  //     first: "Alan",
+  //     middle: "Mathison",
+  //     last: "Turing",
+  //     born: 1912
+  //   });
   
+  //   console.log("Document written with ID: ", docRef.id);
+  // } catch (e) {
+  //   console.error("Error adding document: ", e);
+  // }
+  //   }
+  //   escribirDatos()
+  // });
+
+
 
   return (
     <div>
