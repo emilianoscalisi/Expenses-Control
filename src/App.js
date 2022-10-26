@@ -105,6 +105,7 @@ function App() {
   }
 
   //ver por que se ejecuta 2 veces con cada click en header app-------------------------------------
+  
   let dolarHoy;
   const getValorDolar = (valorDolar) => {
     dolarHoy = valorDolar;
@@ -124,7 +125,6 @@ function App() {
       const unixTime = doc.data().date.seconds;
       const datea = new Date(unixTime * 1000);
       // console.log(datea.toLocaleDateString());
-
       a.push({
         id: doc.data().id,
         seccion: doc.data().seccion,
@@ -137,18 +137,12 @@ function App() {
         date: datea
       }
       );
-      console.log("arreglo Mano de Obra");
-      console.log(a);
-
+      
     });
-    querySnapshotb.forEach((doc) => {
-      // console.log(doc.data());
+    querySnapshotb.forEach((doc) => {     
       
       const unixTime = doc.data().date.seconds;
-      const dateb = new Date(unixTime * 1000);
-      // console.log(dateb.toLocaleDateString());
-
-      
+      const dateb = new Date(unixTime * 1000);       
       b.push(
         {
           id: doc.data().id,
@@ -158,17 +152,11 @@ function App() {
           valorDolar: doc.data().valorDolar,
           amountDolar: doc.data().amountDolar,
           amountPesos: doc.data().amountPesos,
-          date: dateb
-  
+          date: dateb  
         }
-      );
-      
-      console.log("arreglo Materiales");
-      console.log(b);
-
-      const ayb=[...a, ...b] 
-      setExpenses(ayb)
-      // console.log(expenses);
+      ); 
+      const ayb=[...a, ...b];
+      setExpenses(ayb);    
 
     });
   }
@@ -215,13 +203,11 @@ function App() {
       const docRef = await addDoc(collection(db, seccion),
         expensaAdd
       );
-
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
   }
-
 
   return (
     <div>
