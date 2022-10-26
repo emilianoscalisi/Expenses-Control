@@ -109,24 +109,73 @@ function App() {
   const getValorDolar = (valorDolar) => {
     dolarHoy = valorDolar;
     console.log(dolarHoy);
-
   }
 
   //Base de datos---------Leer
   const obtenerDatos = async () => {
-  const querySnapshota = await getDocs(collection(db, "Mano de Obra"));
-  const querySnapshotb = await getDocs(collection(db, "Materiales"));
-  querySnapshota.forEach((doc) => {
-  console.log(doc.data());
-  });
-  querySnapshotb.forEach((doc) => {
-  console.log(doc.data());
-  });
-}
+    const querySnapshota = await getDocs(collection(db, "Mano de Obra"));
+    const querySnapshotb = await getDocs(collection(db, "Materiales"));
+
+    let a = [];
+    let b = [];
+    querySnapshota.forEach((doc) => {
+      // console.log(doc.data());
+
+      const unixTime = doc.data().date.seconds;
+      const datea = new Date(unixTime * 1000);
+      // console.log(datea.toLocaleDateString());
+
+      a.push({
+        id: doc.data().id,
+        seccion: doc.data().seccion,
+        proveedor: doc.data().proveedor,
+        descripcion: doc.data().descripcion,
+        file: doc.data().file,
+        valorDolar: doc.data().valorDolar,
+        amountDolar: doc.data().amountDolar,
+        amountPesos: doc.data().amountPesos,
+        date: datea
+      }
+      );
+      console.log("arreglo Mano de Obra");
+      console.log(a);
+
+    });
+    querySnapshotb.forEach((doc) => {
+      // console.log(doc.data());
+      
+      const unixTime = doc.data().date.seconds;
+      const dateb = new Date(unixTime * 1000);
+      // console.log(dateb.toLocaleDateString());
+
+      
+      b.push(
+        {
+          id: doc.data().id,
+          seccion: doc.data().seccion,
+          pago: doc.data().pago,
+          comentario: doc.data().comentario,
+          valorDolar: doc.data().valorDolar,
+          amountDolar: doc.data().amountDolar,
+          amountPesos: doc.data().amountPesos,
+          date: dateb
+  
+        }
+      );
+      
+      console.log("arreglo Materiales");
+      console.log(b);
+
+      const ayb=[...a, ...b] 
+      setExpenses(ayb)
+      // console.log(expenses);
+
+    });
+  }
 
   useEffect(() => {
     obtenerDatos();
-  });
+  }, []);
 
 
 
