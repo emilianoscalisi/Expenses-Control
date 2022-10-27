@@ -114,49 +114,40 @@ function App() {
 
   //Base de datos---------Leer
   const obtenerDatos = async () => {
-    const querySnapshota = await getDocs(collection(db, "Mano de Obra"));
-    const querySnapshotb = await getDocs(collection(db, "Materiales"));
+    const querySnapshotMano = await getDocs(collection(db, "Mano de Obra"));
+    const querySnapshotMat = await getDocs(collection(db, "Materiales"));
 
-    let a = [];
-    let b = [];
-    querySnapshota.forEach((doc) => {
-      // console.log(doc.data());
+    let mano = [];
+    let mat = [];
+    querySnapshotMano.forEach((doc) => {
+
+      const dataFromFireMano=doc.data();
 
       const unixTime = doc.data().date.seconds;
-      const datea = new Date(unixTime * 1000);
-      // console.log(datea.toLocaleDateString());
-      a.push({
-        id: doc.data().id,
-        seccion: doc.data().seccion,
-        proveedor: doc.data().proveedor,
-        descripcion: doc.data().descripcion,
-        file: doc.data().file,
-        valorDolar: doc.data().valorDolar,
-        amountDolar: doc.data().amountDolar,
-        amountPesos: doc.data().amountPesos,
-        date: datea
-      }
-      );
+      const dateFix = new Date(unixTime * 1000);
+      
+      mano.push({
+        ...dataFromFireMano,
+        date:dateFix        
+      }      
+      );     
       
     });
-    querySnapshotb.forEach((doc) => {     
-      
+    querySnapshotMat.forEach((doc) => {   
+
+      const dataFromFireMat=doc.data();
+
       const unixTime = doc.data().date.seconds;
-      const dateb = new Date(unixTime * 1000);       
-      b.push(
+      const dateFix = new Date(unixTime * 1000);
+
+      mat.push(
         {
-          id: doc.data().id,
-          seccion: doc.data().seccion,
-          pago: doc.data().pago,
-          comentario: doc.data().comentario,
-          valorDolar: doc.data().valorDolar,
-          amountDolar: doc.data().amountDolar,
-          amountPesos: doc.data().amountPesos,
-          date: dateb  
+         ...dataFromFireMat,
+         date: dateFix 
         }
       ); 
-      const ayb=[...a, ...b];
-      setExpenses(ayb);    
+      const manoYmat=[...mano, ...mat];
+      setExpenses(manoYmat);    
 
     });
   }
