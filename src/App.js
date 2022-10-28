@@ -16,7 +16,7 @@ const DUMMIE_EXPENSES_DATA = [
     amountPesos: 15000,
     valorDolar: 200,
     amountDolar: 15000 / 200,
-    date: new Date(2022, 8, 31)
+    date: 1666926000
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const DUMMIE_EXPENSES_DATA = [
     amountPesos: 40000,
     valorDolar: 200,
     amountDolar: 40000 / 200,
-    date: new Date(2022, 8, 31)
+    date: 1666926000
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const DUMMIE_EXPENSES_DATA = [
     amountPesos: 60000,
     valorDolar: 200,
     amountDolar: 60000 / 200,
-    date: new Date(2022, 8, 31)
+    date: 1666926000
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const DUMMIE_EXPENSES_DATA = [
     amountPesos: 50000,
     valorDolar: 200,
     amountDolar: 50000 / 200,
-    date: new Date(2022, 8, 31)
+    date: 1666926000
   }
 ]
 
@@ -105,7 +105,7 @@ function App() {
   }
 
   //ver por que se ejecuta 2 veces con cada click en header app-------------------------------------
-  
+
   let dolarHoy;
   const getValorDolar = (valorDolar) => {
     dolarHoy = valorDolar;
@@ -121,33 +121,21 @@ function App() {
     let mat = [];
     querySnapshotMano.forEach((doc) => {
 
-      const dataFromFireMano=doc.data();
-
-      const unixTime = doc.data().date.seconds;
-      const dateFix = new Date(unixTime * 1000);
-      
+      const dataFromFireMano = doc.data();
       mano.push({
-        ...dataFromFireMano,
-        date:dateFix        
-      }      
-      );     
-      
+        ...dataFromFireMano
+      });
     });
-    querySnapshotMat.forEach((doc) => {   
 
-      const dataFromFireMat=doc.data();
+    querySnapshotMat.forEach((doc) => {
 
-      const unixTime = doc.data().date.seconds;
-      const dateFix = new Date(unixTime * 1000);
+      const dataFromFireMat = doc.data();
+      mat.push({
+        ...dataFromFireMat
+      });
 
-      mat.push(
-        {
-         ...dataFromFireMat,
-         date: dateFix 
-        }
-      ); 
-      const manoYmat=[...mano, ...mat];
-      setExpenses(manoYmat);    
+      const manoYmat = [...mano, ...mat];
+      setExpenses(manoYmat);
 
     });
   }

@@ -16,6 +16,8 @@ const NewExpenseMano = (props) => {
         event.preventDefault();
 
         const localDate = new Date(dateEntred);
+        const localDateFixed = new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate());
+        const aEpoch = Math.floor(new Date(localDateFixed).getTime()/1000.0);
 
         const expenseDataMano = {
             seccion: "Mano de Obra",
@@ -23,10 +25,10 @@ const NewExpenseMano = (props) => {
             etapa: etapaEntred,
             comentario: comentarioEntred,
             amountPesos: Number.parseFloat(amountEntred),           
-            date: new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate())
+            date: aEpoch
         }
-        props.onSaveData(expenseDataMano);
-
+        props.onSaveData(expenseDataMano);     
+    
         setPago("");
         setEtapa("");
         setAmount("");

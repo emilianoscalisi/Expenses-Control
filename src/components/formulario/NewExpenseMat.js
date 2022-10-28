@@ -16,6 +16,8 @@ const NewExpenseMat = (props) => {
         event.preventDefault();
 
         const localDate = new Date(dateEntred);
+        const localDateFixed = new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate());
+        const aEpoch = Math.floor(new Date(localDateFixed).getTime()/1000.0);
 
         const expenseDataMat = {
             seccion: "Materiales",
@@ -23,11 +25,10 @@ const NewExpenseMat = (props) => {
             descripcion: descripcionEntred,
             amountPesos: Number.parseFloat(amountEntred),            
             file: fileEntred,
-            date: new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate())
+            date: aEpoch
         }
         props.onSaveData(expenseDataMat);
     
-
     setProveedor("");
     setDescripcion("");
     setAmount("");
