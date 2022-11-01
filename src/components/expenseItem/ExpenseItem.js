@@ -40,7 +40,7 @@ function ExpenseItem(props){
             <ExpenseDate date={props.data.date}/>
             <h2 className="expense-item__pago-prov">{props.data.proveedor}</h2>
             <h2 className="expense-item__descripcion">{props.data.descripcion}</h2>
-            <h6 className="expense-item__comentario">{props.data.file}</h6>
+            <h6 className="expense-item__file">{props.data.file}</h6>
             <div className="expense-item__price dolar">US$ {props.data.amountDolar.toLocaleString()}</div>               
             <div className="expense-item__price">$ {props.data.amountPesos.toLocaleString()}</div>
             <button className="btn-icons" onClick={deleteHandler}>

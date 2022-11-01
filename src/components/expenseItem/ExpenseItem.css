@@ -52,6 +52,15 @@
     flex: 1;    
     color: white;
 }
+
+.expense-item__file{
+  color: #3a3a3a;
+  text-align: left;
+  margin: 0 135px 0 0;
+  font-size: 1rem;
+      
+  color: white;
+}
   
   
   .expense-item__price {
