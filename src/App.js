@@ -195,7 +195,8 @@ function App() {
         onSelected={selectedHandler}
         onSeccion={seccionHandler}
         totales={totalesManoyMat}
-        data={expensesFiltredBySection} />
+        data={expensesFiltredBySection}
+        item={itemSelected}/>        
       {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected} />}
       <ExpenseList
         data={expensesFiltredBySection}

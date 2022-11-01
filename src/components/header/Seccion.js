@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+// import { useEffect } from "react";
 import "./Seccion.css";
 
 const Seccion = (props) => {  
     
-    const [disable, setDisable]=useState(true);
+    
+    const [disable, setDisable]=useState(true);    
        
     const clickHandlerMat =(event)=>{
         props.onSeccionSelected(event.target.name);
@@ -14,8 +16,28 @@ const Seccion = (props) => {
         setDisable (false);
     }
 
-    
-   
+
+    // Seguir viendo para acomodar los botones de la SECCION. Anda pero se traba 
+    // useEffect(()=>{
+    //     switch (props.itemSelected) {
+    //         case undefined:
+    //           console.log('Undefined');
+    //           break;
+    //         case 'Materiales':
+    //           console.log('Materiales');
+    //           setDisable (true);         
+    //           break;
+    //         case 'Mano de Obra':
+    //           console.log('Mano de Obra');   
+    //           setDisable (false);
+    //           break;       
+    //         default:
+    //             break; 
+    //       }  
+
+    // }) 
+
+ 
     return (
 
         <div className="seccion-content">

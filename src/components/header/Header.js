@@ -9,9 +9,9 @@ import WhatItem from "./WhatItem";
 
 const Header =(props)=>{ 
 
-    
+  
     const itemSelectedHandler = (selected) => {
-      props.onSelected(selected);
+      props.onSelected(selected);      
       
     }
 
@@ -33,7 +33,7 @@ const Header =(props)=>{
         
             <WhatItem onItemSelected={itemSelectedHandler} onSeccionSelected={seccionSelectedHandler}/>
             <Subtotales data={props.data}/>
-            <Seccion onSeccionSelected={seccionSelectedHandler}/>
+            <Seccion onSeccionSelected={seccionSelectedHandler} itemSelected={props.item}/>
             <TotalesItem totales={props.totales}/>
             <DolarItem onValorDolar={getValorDolar}/>                        
         
