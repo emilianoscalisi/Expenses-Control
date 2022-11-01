@@ -13,6 +13,8 @@ const Seccion = (props) => {
         props.onSeccionSelected(event.target.name);
         setDisable (false);
     }
+
+    
    
     return (
 

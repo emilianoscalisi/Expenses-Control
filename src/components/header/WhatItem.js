@@ -9,6 +9,7 @@ const WhatItem = (props) => {
         event.preventDefault();
         const selected = event.target.textContent;
         props.onItemSelected(selected);
+        props.onSeccionSelected(event.target.textContent);
     }  
 
     return (      
