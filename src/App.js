@@ -3,7 +3,7 @@ import Header from './components/header/Header';
 import Formulario from './components/formulario/Formulario';
 import { useEffect, useState } from 'react';
 import ExpenseList from './components/expenseItem/ExpenseList';
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc,doc, setDoc, query, orderBy,limit} from "firebase/firestore";
 import db from './firebase/firebaseConfig';
 
 const DUMMIE_EXPENSES_DATA = [
@@ -116,7 +116,7 @@ function App() {
   const obtenerDatos = async () => {
     const querySnapshotMano = await getDocs(collection(db, "Mano de Obra"));
     const querySnapshotMat = await getDocs(collection(db, "Materiales"));
-
+   
     let mano = [];
     let mat = [];
     querySnapshotMano.forEach((doc) => {
@@ -178,11 +178,17 @@ function App() {
       }
     }
 
+    
     try {
-      const docRef = await addDoc(collection(db, seccion),
-        expensaAdd
-      );
-      console.log("Document written with ID: ", docRef.id);
+      // Cargo la expensa con el ID del item
+      await setDoc(doc(db, seccion, expensaAdd.id), expensaAdd);
+
+      // Cargo la expensa con el ID generado automaticamente
+      // const docRef = await addDoc(collection(db, seccion),
+      //   expensaAdd
+      // );
+      console.log("Document written with ID: ", expensaAdd.id);
+      // console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
