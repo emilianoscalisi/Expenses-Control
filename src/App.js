@@ -3,7 +3,7 @@ import Header from './components/header/Header';
 import Formulario from './components/formulario/Formulario';
 import { useEffect, useState } from 'react';
 import ExpenseList from './components/expenseItem/ExpenseList';
-import { collection, getDocs, addDoc,doc, setDoc, query, orderBy,limit} from "firebase/firestore";
+import { collection, getDocs, addDoc,doc, setDoc, query, orderBy,limit, deleteDoc} from "firebase/firestore";
 import db from './firebase/firebaseConfig';
 
 const DUMMIE_EXPENSES_DATA = [
@@ -79,9 +79,13 @@ function App() {
     escribirDatos(theExpense);
   }
 
-  const removeItemHandler = (id) => {
+   const removeItemHandler = async (ItemToRemov) => {
+
+    //Borro Items de firebase
+    await deleteDoc(doc(db, ItemToRemov.seccion, ItemToRemov.id));
+
     setExpenses((prevExpenses) => {
-      return prevExpenses.filter((expensesItem) => expensesItem.id !== id);
+      return prevExpenses.filter((expensesItem) => expensesItem.id !== ItemToRemov.id);
     });
   }
 

@@ -12,9 +12,8 @@ const ExpenseList = (props) => {
 
     }
 
-    const deleteHandler =(id)=>{
-        const deletItem =id;
-        props.OnRemoveItem(deletItem);
+    const deleteHandler =(ItemToRemov)=>{        
+        props.OnRemoveItem(ItemToRemov);
 
     }
 

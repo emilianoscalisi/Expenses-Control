@@ -8,8 +8,8 @@ import EditIcon from '@mui/icons-material/Edit';
 
 function ExpenseItem(props){
 
-    const deleteHandler =()=>{
-        props.onDelete(props.data.id);      
+    const deleteHandler =()=>{       
+        props.onDelete(props.data);      
 
     }
    
