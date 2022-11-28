@@ -3,7 +3,7 @@ import Header from './components/header/Header';
 import Formulario from './components/formulario/Formulario';
 import { useEffect, useState } from 'react';
 import ExpenseList from './components/expenseItem/ExpenseList';
-import { collection, getDocs, addDoc,doc, setDoc, query, orderBy,limit, deleteDoc} from "firebase/firestore";
+import { collection, getDocs,doc, setDoc, query, orderBy, deleteDoc} from "firebase/firestore";
 import db from './firebase/firebaseConfig';
 
 const DUMMIE_EXPENSES_DATA = [
@@ -118,9 +118,13 @@ function App() {
 
   //Base de datos---------Leer
   const obtenerDatos = async () => {
-    const querySnapshotMano = await getDocs(collection(db, "Mano de Obra"));
-    const querySnapshotMat = await getDocs(collection(db, "Materiales"));
-   
+
+    const q = query(collection(db, "Mano de Obra"), orderBy("date", "asc"));
+    const r = query(collection(db, "Materiales"), orderBy("date", "asc"));
+
+    const querySnapshotMano = await getDocs(q);
+    const querySnapshotMat = await getDocs(r);
+    
     let mano = [];
     let mat = [];
     querySnapshotMano.forEach((doc) => {
@@ -129,6 +133,7 @@ function App() {
       mano.push({
         ...dataFromFireMano
       });
+      console.log(doc.id, " => ", doc.data());
     });
 
     querySnapshotMat.forEach((doc) => {
@@ -137,6 +142,7 @@ function App() {
       mat.push({
         ...dataFromFireMat
       });
+      console.log(doc.id, " => ", doc.data());
 
       const manoYmat = [...mano, ...mat];
       setExpenses(manoYmat);
