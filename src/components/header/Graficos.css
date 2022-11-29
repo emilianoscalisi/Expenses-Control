@@ -1,0 +1,32 @@
+.graficos-content {
+    background-color: #F9F5EB;
+    color: black;
+    border-radius: 10px;
+    width: 14%;
+    min-width: 150px;
+    padding: 5px;
+    border: solid 2px black; 
+    margin-right: 5px; 
+    text-align: center;
+  
+     
+}
+
+
+.btn-graph{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px!important;    
+    background-color: black!important;    
+
+    color: white!important;
+
+}
+
+
+.btn-graph:hover {    
+    color:white!important;
+    background-color: #1C3879!important;
+    
+}
+

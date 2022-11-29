@@ -132,8 +132,7 @@ function App() {
       const dataFromFireMano = doc.data();
       mano.push({
         ...dataFromFireMano
-      });
-      console.log(doc.id, " => ", doc.data());
+      });      
     });
 
     querySnapshotMat.forEach((doc) => {
@@ -142,8 +141,6 @@ function App() {
       mat.push({
         ...dataFromFireMat
       });
-      console.log(doc.id, " => ", doc.data());
-
       const manoYmat = [...mano, ...mat];
       setExpenses(manoYmat);
 

@@ -6,6 +6,7 @@ import DolarItem from "./DolarItem";
 import Seccion from "./Seccion";
 import Subtotales from "./Subtotales";
 import WhatItem from "./WhatItem";
+import Graficos from "./Graficos";
 
 const Header =(props)=>{ 
 
@@ -30,7 +31,7 @@ const Header =(props)=>{
     return(
         
         <CardHeader className="headerstyle">
-        
+            <Graficos/>
             <WhatItem onItemSelected={itemSelectedHandler} onSeccionSelected={seccionSelectedHandler}/>
             <Subtotales data={props.data}/>
             <Seccion onSeccionSelected={seccionSelectedHandler} itemSelected={props.item}/>
