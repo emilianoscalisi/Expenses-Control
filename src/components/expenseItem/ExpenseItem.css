@@ -94,6 +94,11 @@
 
   }
 
+  .btn-icons:hover{
+    color: rgba(255, 0, 0, 0.719);
+
+  }
+
  
   
     /* @media (min-width: 580px) {
