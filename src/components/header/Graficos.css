@@ -2,7 +2,7 @@
     background-color: #F9F5EB;
     color: black;
     border-radius: 10px;
-    width: 14%;
+    width: 50%!important;
     min-width: 150px;
     padding: 5px;
     border: solid 2px black; 
@@ -12,13 +12,17 @@
      
 }
 
+.content-grafico{
+width: 500px;
+}
+
+
 
 .btn-graph{
     width: 60px;
     height: 60px;
     border-radius: 30px!important;    
-    background-color: black!important;    
-
+    background-color: black!important;
     color: white!important;
 
 }
