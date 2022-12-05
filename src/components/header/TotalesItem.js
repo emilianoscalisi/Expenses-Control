@@ -2,6 +2,10 @@ import React from "react";
 import "./TotalesItem.css";
 
 const TotalesItem =(props)=>{
+
+    const pesos = parseFloat((props.totales.totalPesos).toFixed(2)).toLocaleString();
+    const dolares = parseFloat((props.totales.totalDolar).toFixed(2)).toLocaleString();
+
     
     return(
         <div className="totales-content">
@@ -10,11 +14,11 @@ const TotalesItem =(props)=>{
             </div>
             <div>
                 <label className="label-text pesos" >PESOS:</label>
-                <label className="label-amoun pesos bold">$ {props.totales.totalPesos}</label>
+                <label className="label-amoun pesos bold">$ {pesos}</label>
             </div>
             <div>
                 <label className="label-text dolares" >DOLARES:</label>
-                <label className="label-amoun dolares bold">U$S {props.totales.totalDolar}</label>
+                <label className="label-amoun dolares bold">U$S {dolares}</label>
             </div>
         </div>
     );

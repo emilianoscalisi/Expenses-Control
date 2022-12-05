@@ -54,7 +54,7 @@ const Graficos = (props) => {
                     </DialogContentText> */}
 
                     <div className='content-grafico' >
-                        <GraficoPie/>
+                        <GraficoPie totales={props.totales}/>
                     </div>
                 </DialogContent>
                 <DialogActions>

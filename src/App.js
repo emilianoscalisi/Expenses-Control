@@ -90,9 +90,10 @@ function App() {
   }
 
   const totalesManoyMat = {
-    totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0).toLocaleString(),
-    totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0).toLocaleString()
+    totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0),
+    totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0)
   }
+
 
   const selectedHandler = (whatItem) => {
     setItemSelected(whatItem);
@@ -119,8 +120,8 @@ function App() {
   //Base de datos---------Leer
   const obtenerDatos = async () => {
 
-    const q = query(collection(db, "Mano de Obra"), orderBy("date", "asc"));
-    const r = query(collection(db, "Materiales"), orderBy("date", "asc"));
+    const q = query(collection(db, "Mano de Obra"), orderBy("date", "desc"));
+    const r = query(collection(db, "Materiales"), orderBy("date", "desc"));
 
     const querySnapshotMano = await getDocs(q);
     const querySnapshotMat = await getDocs(r);
@@ -207,7 +208,7 @@ function App() {
         onValorDolar={getValorDolar}
         onSelected={selectedHandler}
         onSeccion={seccionHandler}
-        totales={totalesManoyMat}
+        totales={totalesManoyMat}       
         data={expensesFiltredBySection}
         item={itemSelected}/>        
       {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected} />}

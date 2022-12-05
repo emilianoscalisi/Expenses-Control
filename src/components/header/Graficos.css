@@ -1,8 +1,7 @@
 .graficos-content {
     background-color: #F9F5EB;
     color: black;
-    border-radius: 10px;
-    width: 50%!important;
+    border-radius: 10px; 
     min-width: 150px;
     padding: 5px;
     border: solid 2px black; 
@@ -12,8 +11,8 @@
      
 }
 
-.content-grafico{
-width: 500px;
+.content-grafico {
+    width: 500px;
 }
 
 
