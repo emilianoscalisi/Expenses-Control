@@ -14,6 +14,9 @@ const GraficoPie = (props) => {
         title: {
             text: 'Totales en Pesos ($) & Dolares (U$D)'
         },
+        accessibility:{
+            enabled:false
+        },
         series: [{
             type: 'pie',
             allowPointSelect: true,
