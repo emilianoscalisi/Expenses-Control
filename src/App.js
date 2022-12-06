@@ -89,12 +89,6 @@ function App() {
     });
   }
 
-  const totalesManoyMat = {
-    totalPesos: expenses.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0),
-    totalDolar: expenses.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0)
-  }
-
-
   const selectedHandler = (whatItem) => {
     setItemSelected(whatItem);
     setFormState(true);
@@ -208,7 +202,7 @@ function App() {
         onValorDolar={getValorDolar}
         onSelected={selectedHandler}
         onSeccion={seccionHandler}
-        totales={totalesManoyMat}       
+        totales={expenses}       
         data={expensesFiltredBySection}
         item={itemSelected}/>        
       {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected} />}

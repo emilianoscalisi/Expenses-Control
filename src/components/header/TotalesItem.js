@@ -3,8 +3,13 @@ import "./TotalesItem.css";
 
 const TotalesItem =(props)=>{
 
-    const pesos = parseFloat((props.totales.totalPesos).toFixed(2)).toLocaleString();
-    const dolares = parseFloat((props.totales.totalDolar).toFixed(2)).toLocaleString();
+   
+    const totalPesos= props.totales.reduce((acumulador, actual) => actual.amountPesos + acumulador, 0);
+    const totalDolar= props.totales.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0);
+    
+
+    const pesos = parseFloat((totalPesos).toFixed(2)).toLocaleString();
+    const dolares = parseFloat((totalDolar).toFixed(2)).toLocaleString();
 
     
     return(

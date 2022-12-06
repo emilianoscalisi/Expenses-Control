@@ -6,13 +6,18 @@ import HighchartsReact from 'highcharts-react-official'
 
 const GraficoPie = (props) => {
 
-   
-    const pesos = parseFloat((props.totales.totalPesos).toFixed(2));
-    const dolares = parseFloat((props.totales.totalDolar).toFixed(2)); 
+    const mano = props.totales.filter(eachExpense => eachExpense.seccion === "Mano de Obra");
+    const mat = props.totales.filter(eachExpense => eachExpense.seccion === "Materiales");
+
+    const totalDolarMano= mano.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0);
+    const totalDolarMat= mat.reduce((acumulador, actual) => actual.amountDolar + acumulador, 0);
+
+    const dolaresMano = parseFloat((totalDolarMano).toFixed(2));
+    const dolaresMat = parseFloat((totalDolarMat).toFixed(2)); 
    
     const options = {
         title: {
-            text: 'Totales en Pesos ($) & Dolares (U$D)'
+            text: 'Total en Dolares (U$D)'
         },
         accessibility:{
             enabled:false
@@ -21,10 +26,10 @@ const GraficoPie = (props) => {
             type: 'pie',
             allowPointSelect: true,
             keys: ['name', 'y', 'selected', 'sliced'],
-            colors: ['#4572A7','#71a54e'],
+            colors: ['#FFC107','#71a54e'],
             data: [
-                ['Totale en $', pesos, true, true],
-                ['Total en U$D', dolares, false]
+                ['Mano De Obra', dolaresMano, true, true],
+                ['Materiales', dolaresMat, false]
                 // ['Xiaomi', 10.87, false],
                 // ['Huawei', 8.48, false],
                 // ['Oppo', 5.38, false],
