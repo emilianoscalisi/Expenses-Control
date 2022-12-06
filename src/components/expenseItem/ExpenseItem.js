@@ -25,8 +25,8 @@ function ExpenseItem(props){
             <h2 className="expense-item__pago-prov">{props.data.pago}</h2>
             <h2 className="expense-item__etapa">{props.data.etapa}</h2>
             <h6 className="expense-item__comentario">{props.data.comentario}</h6>
-            <div className="expense-item__price dolar">US$ {props.data.amountDolar.toLocaleString()}</div>                        
-            <div className="expense-item__price">$ {props.data.amountPesos.toLocaleString()}</div>
+            <div className="expense-item__price dolar">US$ {parseFloat((props.data.amountDolar).toFixed(2)).toLocaleString()}</div>                        
+            <div className="expense-item__price">$ {parseFloat((props.data.amountPesos).toFixed(2)).toLocaleString()}</div>
             <button className="btn-icons" onClick={deleteHandler}>
                 <DeleteForeverIcon fontSize="small"/>
             </button>
@@ -45,8 +45,8 @@ function ExpenseItem(props){
             <h2 className="expense-item__pago-prov">{props.data.proveedor}</h2>
             <h2 className="expense-item__descripcion">{props.data.descripcion}</h2>
             <h6 className="expense-item__file">{props.data.file}</h6>
-            <div className="expense-item__price dolar">US$ {props.data.amountDolar.toLocaleString()}</div>               
-            <div className="expense-item__price">$ {props.data.amountPesos.toLocaleString()}</div>
+            <div className="expense-item__price dolar">US$ {parseFloat((props.data.amountDolar).toFixed(2)).toLocaleString()}</div>               
+            <div className="expense-item__price">$ {parseFloat((props.data.amountPesos).toFixed(2)).toLocaleString()}</div>
             <button className="btn-icons" onClick={deleteHandler}>
                 <DeleteForeverIcon fontSize="small"/>
             </button>

@@ -25,9 +25,7 @@ const Formulario = (props) => {
     const defaultValue = date.toLocaleDateString('en-CA');
    
 
-    const expenseSelected = props.item;
-    // const itemToEdit = props.editItem;
-  
+    const expenseSelected = props.item;  
 
         if (expenseSelected === "Materiales" || props.editItem.seccion === "Materiales" ) {
             return (
