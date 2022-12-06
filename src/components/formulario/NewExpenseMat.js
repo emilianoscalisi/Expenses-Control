@@ -11,6 +11,16 @@ const NewExpenseMat = (props) => {
     const [fileEntred, setFile] = useState("");
     const [dateEntred, setDate] = useState(props.defaultDate);
 
+    if(props.itemToEdit.id !== "" ){
+
+        console.log(props.itemToEdit.id);
+        console.log(props.itemToEdit.seccion);
+    // setProveedor(props.itemToEdit.proveedor);
+    // setDescripcion(props.itemToEdit.descripcion);
+    // setAmount(props.itemToEdit.amountPesos);
+    // setFile("");
+    // setDate(props.itemToEdit.date);
+    }
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -61,6 +71,8 @@ const cancelkHandler = (event) => {
     event.preventDefault();
     props.onCalcel();
 }
+
+
 
 return (
     <CardHeader>

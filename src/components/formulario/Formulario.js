@@ -26,14 +26,16 @@ const Formulario = (props) => {
    
 
     const expenseSelected = props.item;
+    // const itemToEdit = props.editItem;
+  
 
-        if (expenseSelected === "Materiales") {
+        if (expenseSelected === "Materiales" || props.editItem.seccion === "Materiales" ) {
             return (
-                <NewExpenseMat onCalcel={calcelHandler} onSaveData={saveDataHandler} defaultDate={defaultValue}/>
+                <NewExpenseMat onCalcel={calcelHandler} onSaveData={saveDataHandler} defaultDate={defaultValue} itemToEdit={props.editItem} />
             );
-        } else {
+        } else if (expenseSelected === "Mano de Obra" || props.editItem.seccion === "Mano de Obra" ){
             return (
-                <NewExpenseMano onCalcel={calcelHandler} onSaveData={saveDataHandler} defaultDate={defaultValue}/>
+                <NewExpenseMano onCalcel={calcelHandler} onSaveData={saveDataHandler} defaultDate={defaultValue} itemToEdit={props.editItem}/>
             );
         }
    

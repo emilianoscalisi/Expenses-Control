@@ -11,6 +11,17 @@ const NewExpenseMano = (props) => {
     const [amountEntred, setAmount] = useState("");
     const [dateEntred, setDate] = useState(props.defaultDate)   
 
+    if(props.itemToEdit.id !== "" ){
+
+        console.log(props.itemToEdit.id);
+        console.log(props.itemToEdit.seccion);
+        // setPago(props.itemToEdit.pago);
+        // setEtapa(props.itemToEdit.etapa);
+        // setAmount(props.itemToEdit.amountPesos);
+        // setComentario(props.itemToEdit.comentario);
+        // setDate(props.itemToEdit.date);
+
+    }
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -60,8 +71,8 @@ const NewExpenseMano = (props) => {
     const cancelkHandler = (event) => {
         event.preventDefault();
         props.onCalcel();
-    } 
-    
+    }     
+  
 
 
     return (

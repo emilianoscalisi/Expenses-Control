@@ -14,8 +14,12 @@ const ExpenseList = (props) => {
 
     const deleteHandler =(ItemToRemov)=>{        
         props.OnRemoveItem(ItemToRemov);
-
+    }    
+    
+    const editHandler =(ItemToEdit)=>{        
+        props.OnEditItem(ItemToEdit);
     }
+
 
     const expenses = props.data;
     const seccionSelected = props.seccion;
@@ -32,6 +36,7 @@ const ExpenseList = (props) => {
                     key={expe.id}
                     data={expe}
                     onDelete ={deleteHandler}
+                    onEdit ={editHandler}
                 />))}
 
             </ul>

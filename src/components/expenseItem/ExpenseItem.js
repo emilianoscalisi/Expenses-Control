@@ -9,7 +9,11 @@ import EditIcon from '@mui/icons-material/Edit';
 function ExpenseItem(props){
 
     const deleteHandler =()=>{       
-        props.onDelete(props.data);      
+        props.onDelete(props.data);    
+
+    }
+    const editHandler =()=>{       
+        props.onEdit(props.data);    
 
     }
    
@@ -26,7 +30,7 @@ function ExpenseItem(props){
             <button className="btn-icons" onClick={deleteHandler}>
                 <DeleteForeverIcon fontSize="small"/>
             </button>
-            <button className="btn-icons">
+            <button className="btn-icons" onClick={editHandler}>
                 <EditIcon fontSize="small"/>
             </button>                      
         </CardHeader>
@@ -46,7 +50,7 @@ function ExpenseItem(props){
             <button className="btn-icons" onClick={deleteHandler}>
                 <DeleteForeverIcon fontSize="small"/>
             </button>
-            <button className="btn-icons">
+            <button className="btn-icons" onClick={editHandler}>
                 <EditIcon fontSize="small"/>
             </button>                       
         </CardHeader>

@@ -59,6 +59,7 @@ function App() {
   const [itemSelected, setItemSelected] = useState();
   const [seccionSelected, setSeccion] = useState("Materiales");
   const [formState, setFormState] = useState(false);
+  const [editItem, seteditItem] = useState("");
 
 
   const expensesFiltredBySection = expenses.filter(eachExpense => eachExpense.seccion === seccionSelected);
@@ -87,6 +88,15 @@ function App() {
     setExpenses((prevExpenses) => {
       return prevExpenses.filter((expensesItem) => expensesItem.id !== ItemToRemov.id);
     });
+  }
+
+  const editItemHandler = async (ItemToEdit) => {    
+    seteditItem(ItemToEdit);
+    setItemSelected(ItemToEdit.seccion)
+    setFormState(true);    
+    //Base de datos---------Editar    
+    
+    
   }
 
   const selectedHandler = (whatItem) => {
@@ -205,11 +215,12 @@ function App() {
         totales={expenses}       
         data={expensesFiltredBySection}
         item={itemSelected}/>        
-      {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected} />}
+      {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected} editItem={editItem} />}
       <ExpenseList
         data={expensesFiltredBySection}
         seccion={seccionSelected}
-        OnRemoveItem={removeItemHandler} />
+        OnRemoveItem={removeItemHandler} 
+        OnEditItem={editItemHandler} />
     </div>
 
   );
