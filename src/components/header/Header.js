@@ -31,7 +31,8 @@ const Header =(props)=>{
     return(
         
         <CardHeader className="headerstyle">
-            <Graficos/>
+          
+            <Graficos totales={props.totales}/>
             <WhatItem onItemSelected={itemSelectedHandler} onSeccionSelected={seccionSelectedHandler}/>
             <Subtotales data={props.data}/>
             <Seccion onSeccionSelected={seccionSelectedHandler} itemSelected={props.item}/>
