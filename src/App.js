@@ -6,6 +6,7 @@ import ExpenseList from './components/expenseItem/ExpenseList';
 import { collection, getDocs,doc, setDoc, query, orderBy, deleteDoc} from "firebase/firestore";
 import db from './firebase/firebaseConfig';
 
+
 const DUMMIE_EXPENSES_DATA = [
   {
     id: 1,
@@ -90,13 +91,18 @@ function App() {
     });
   }
 
-  const editItemHandler = async (ItemToEdit) => {    
+  const editItemHandler = (ItemToEdit, editar) => {    
     seteditItem(ItemToEdit);
     setItemSelected(ItemToEdit.seccion)
-    setFormState(true);    
-    //Base de datos---------Editar    
-    
-    
+    setFormState(true);
+    editar();    
+  }
+
+  const SaveDataEditedHandler = async(saveDataEdited)=>{
+    const itemEditedToSave = saveDataEdited;
+    //Base de datos---------Editar
+    console.log(itemEditedToSave);
+
   }
 
   const selectedHandler = (whatItem) => {
@@ -215,7 +221,7 @@ function App() {
         totales={expenses}       
         data={expensesFiltredBySection}
         item={itemSelected}/>        
-      {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} item={itemSelected} editItem={editItem} />}
+      {formState === true && <Formulario onForm={formHandler} onSaveDataApp={saveDataHandler} onSaveDataEdited={SaveDataEditedHandler} item={itemSelected} editItem={editItem} />}
       <ExpenseList
         data={expensesFiltredBySection}
         seccion={seccionSelected}

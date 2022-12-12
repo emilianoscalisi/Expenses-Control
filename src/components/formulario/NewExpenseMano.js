@@ -10,16 +10,52 @@ const NewExpenseMano = (props) => {
     const [comentarioEntred, setComentario] = useState("");
     const [amountEntred, setAmount] = useState("");
     const [dateEntred, setDate] = useState(props.defaultDate)   
+    const [btnState, setBtnState] = useState("Agregar")   
 
-    if(props.itemToEdit.id !== "" ){
+    // if(props.itemToEdit.id !== "" ){
 
-        console.log(props.itemToEdit.id);
-        console.log(props.itemToEdit.seccion);
-        // setPago(props.itemToEdit.pago);
-        // setEtapa(props.itemToEdit.etapa);
-        // setAmount(props.itemToEdit.amountPesos);
-        // setComentario(props.itemToEdit.comentario);
-        // setDate(props.itemToEdit.date);
+    //     console.log(props.itemToEdit.id);
+    //     console.log(props.itemToEdit.seccion);
+    //     setPago(props.itemToEdit.pago);
+    //     setEtapa(props.itemToEdit.etapa);
+    //     setAmount(props.itemToEdit.amountPesos);
+    //     setComentario(props.itemToEdit.comentario);
+    //     setDate(props.itemToEdit.date);
+
+    // }
+
+    const editar =()=>{
+        setBtnState("Editar");
+        setPago(props.itemToEdit.pago);
+        setEtapa(props.itemToEdit.etapa);
+        setAmount(props.itemToEdit.amountPesos);
+        setComentario(props.itemToEdit.comentario);
+        setDate(props.itemToEdit.date);
+
+    }
+
+    const editarHandler =(event)=>{
+        event.preventDefault();
+
+        const localDate = new Date(dateEntred);
+        const localDateFixed = new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate());
+        const aEpoch = Math.floor(new Date(localDateFixed).getTime()/1000.0);
+
+        const expenseDataMano = {
+            seccion: "Mano de Obra",
+            pago: pagoEntred,
+            etapa: etapaEntred,
+            comentario: comentarioEntred,
+            amountPesos: Number.parseFloat(amountEntred),           
+            date: aEpoch
+        }
+        props.onSaveDataEdited(expenseDataMano);     
+    
+        setPago("");
+        setEtapa("");
+        setAmount("");
+        setComentario("");
+        setDate(props.defaultDate);
 
     }
 
@@ -98,7 +134,7 @@ const NewExpenseMano = (props) => {
                     </div>
 
                     <div className="new-expense__actions">
-                        <button className="btn btn-success btn-expense" type="submit">Agregar</button>
+                        <button className="btn btn-success btn-expense" type="submit" onClick={editarHandler} >{btnState}</button>
                         <button className="btn btn-danger btn-cancel" type="button" onClick={cancelkHandler}>Cancelar</button>
                     </div>
 
